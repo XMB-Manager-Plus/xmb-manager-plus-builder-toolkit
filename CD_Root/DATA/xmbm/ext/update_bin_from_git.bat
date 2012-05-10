@@ -28,14 +28,14 @@ If /I %choice%==n goto :first
 goto :ask_confirm
 
 :ok
-%external%\wget --no-check-certificate %git_page%/zipball/master -O xmbmp.zip
+%external%\wget --no-check-certificate %git_toolkit_page%/zipball/master -O xmbmp.zip
 %external%\unzip -o -qq xmbmp.zip
 del /Q /S xmbmp.zip
 move "*xmb-manager-plus*" "new-version"
 ::del /Q /S "%external%\new-version\README*"
 rmdir /Q /S "%external%\new-version\ext"
 rmdir /Q /S "%bindir%"
-move "%external%\new-version\bin" "%bindir%"
+move "%external%\new-version\CD_Root\DATA\xmbm\bin" "%bindir%"
 rmdir /Q /S "%external%\new-version"
 
 :end
