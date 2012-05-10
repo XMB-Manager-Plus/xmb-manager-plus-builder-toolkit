@@ -1,0 +1,3 @@
+[submodule "CD_ROOT/DATA/xmbm/bin/base.original"]
+	path = CD_ROOT/DATA/xmbm/bin/base.original
+	url = git://github.com/XMB-Manager-Plus/xmb-manager-plus.git
