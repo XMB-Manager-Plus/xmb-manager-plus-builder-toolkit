@@ -1,6 +1,0 @@
-to edit GUI about box  informations when you update Batch or Source etc....
-rename ap7.dat to bmp then edit bmp and add new version info 
-then save to bmp and rename it to ap7.dat
-
-now you are ready to create a update setup file!! 
-to update XMBM+ GUI Builder Toolkit

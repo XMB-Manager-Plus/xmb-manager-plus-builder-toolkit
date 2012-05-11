@@ -1,5 +1,4 @@
 @echo off
-title Build Themes
 for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 
 :first
