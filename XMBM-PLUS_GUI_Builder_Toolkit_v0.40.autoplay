@@ -9844,7 +9844,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <HelpURL>http://www.yourdomain.com/help.htm</HelpURL>
 </MissingTechs>
 <ProgramPrefs>
-<OutputFolder/>
+<OutputFolder>E:\Windows 7\Bureau\xmbmpp</OutputFolder>
 <EXEName>XMBM+BuilderToolkit.exe</EXEName>
 <EnableAutoPlayFeatureBTF>0</EnableAutoPlayFeatureBTF>
 <EnableAutoPlayFeatureCDRW>1</EnableAutoPlayFeatureCDRW>
@@ -9854,7 +9854,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <TimeStampFilesCDRW>0</TimeStampFilesCDRW>
 <TimeStampFilesISO>0</TimeStampFilesISO>
 <ISOImageFile/>
-<SelfExtractingZIPfile/>
+<SelfExtractingZIPfile>C:\XMBM+_Builder_Toolkit_v0.40.exe</SelfExtractingZIPfile>
 <ZIPMessage>Loading</ZIPMessage>
 <ZIPShowProgress>1</ZIPShowProgress>
 <CDVolumeIdentifier>NEWDISC</CDVolumeIdentifier>
