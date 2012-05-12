@@ -1,4 +1,4 @@
-XMB Mamanger Plus Builder Toolkit
+XMB Manager Plus Builder Toolkit
 =================================
 
 XMB Manager Plus (XMBM+) Builder Toolkit is a application that allow user to create custom XMB Manager Plus for PS3
@@ -88,7 +88,7 @@ Edit Settings - This will open settings.ini to allow editing from the user
 
 Toggle Sound - This will enable or disable GUI Menu sound
 
-Update Bin From GitHub - This will update the current base and base.original to the latest available on the git of XMBM-Manager-Plus
+Update Bin From GitHub - This will update the current base and base.original to the latest available on the git of XMB-Manager-Plus
 
 ### About XMBM+ Toolkit Builder
 
@@ -97,7 +97,7 @@ This will showing the about box to show information about this release and the t
 ## XMBM+ Builder Toolkit Credits
 
 -  GUI: XiorgON
--  Batch: XiorgON, PS3hen, andreus
+-  Batch coding: XiorgON, ps3hen, andreus
 -  Graphical design: Berion
 
 ## Team XMBM+
@@ -124,6 +124,3 @@ The entire source in available for download in the git
 -  Development page: http://www.ps3crunch.net/forum/threads/2431
 -  Git: https://github.com/XMB-Manager-Plus/xmb-manager-plus
 -  Git (Builder Toolkit): https://github.com/XMB-Manager-Plus/xmb-manager-plus-builder-toolkit
-
-All packages are compiled with the XMBM+ Builder Toolkit
-With the XMBM+ Builder Toolkit you can create your own XMBM+ themes and language packs and ++.
