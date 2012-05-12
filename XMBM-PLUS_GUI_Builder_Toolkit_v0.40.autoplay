@@ -2280,7 +2280,7 @@
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Open package source folder</ToolTip>
+<ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -2405,7 +2405,7 @@ Source Folder</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Open package output folder</ToolTip>
+<ToolTip/>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -4798,7 +4798,7 @@ Build Packages</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Build &amp; Distribute All Source - Pre-Request ''Dropbox Config''</ToolTip>
+<ToolTip>Build &amp; Distribute All Source</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -4925,7 +4925,7 @@ All Packages</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Build &amp; Distribute Languages Source - Pre-Request ''Dropbox Config''</ToolTip>
+<ToolTip>Build &amp; Distribute Languages Source</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -5052,7 +5052,7 @@ Languages Packages</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Build &amp; Distribute Themes Source - Preb-Request ''Dropbox Config''</ToolTip>
+<ToolTip>Build &amp; Distribute Themes Source</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -5305,7 +5305,7 @@ Themes Packages</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Build &amp; Distribute Core Source - Pre-Request ''Dropbox Config''</ToolTip>
+<ToolTip>Build &amp; Distribute Core Source</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -7429,7 +7429,7 @@ Base Folder</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Open Base Features Folder to Edit Contents</ToolTip>
+<ToolTip>Add &amp; Create Personal Area on source</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -7949,7 +7949,7 @@ Personal Area</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Enable/disable sound</ToolTip>
+<ToolTip>Enable/disable GUI Menu sound</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -8329,7 +8329,7 @@ PKG Compiler</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Set the Base Language version in base_lang_ver.ini</ToolTip>
+<ToolTip>Set the Working Base version in settings.ini</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -8695,7 +8695,7 @@ Settings</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Enable/disable sound</ToolTip>
+<ToolTip>Update Bin From GitHub</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -9091,7 +9091,7 @@ From GitHub</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip/>
+<ToolTip>Open XMBM+ development thread on PS3 Crunch</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -9099,8 +9099,8 @@ From GitHub</Caption>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>340</Top>
-<Bottom>367</Bottom>
+<Top>312</Top>
+<Bottom>339</Bottom>
 <Left>20</Left>
 <Right>381</Right>
 </Coordinates>
@@ -9222,8 +9222,8 @@ From GitHub</Caption>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>102</Top>
-<Bottom>331</Bottom>
+<Top>79</Top>
+<Bottom>308</Bottom>
 <Left>20</Left>
 <Right>381</Right>
 </Coordinates>
@@ -9289,122 +9289,157 @@ From GitHub</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>ANDREUS PLEASE CHANGE THIS BY BETTER ONE
-ALL PROBLEM CORRECTED EXEPTED ONE THAT IN ALL BATCH THE TITLE IS (BUILD THEME) SO I SUGGEST TO REMOVE TITLE IN ALL BATCH
+<Body>XMBM+ GUI Builder Toolkit
+==========================================
 
-CHANGELOG:
+ Is a application that allow user to create custom XMB Manager Plus for PS3 with Gui Interface
+==========================================
+Main Features
+_______________
 
-divided original batch to 17 batch (thanks XiorgON, andreus)
+=============
+# Build Sources
+=============
 
-adding, removing, modding some script (thanks XiorgON, andreus, PS3hen)
+Add Language - This allow user to create new language.ini
 
-making of images interface for gui and dialog box (thanks Berion)
+Add Theme - This allow user to create new theme
 
-making icon from berion images (thanks Berion, XiorgON)
+Add Personal Area - This allow user to create Personal Area: Link, Folder, Packages
 
+Edit Features - This will open base\XMBMANPLS\USRDIR\FEATURES directory to allow editing content
 
-(THANKS to XiorgON)
+Edit Languages - This will open base\languages  directory to allow editing content
 
-found error value in encoding_prep for /d fontsize
+Edit Themes - This will open base\XMBMANPLS\USRDIR\IMAGES directory to allow editing content
 
-corrected compatibility error in encoding_prep.bat to accept all batch
+Build Source - This will build needed source to build XMBM+ packages
 
-making new batch to enter location of dropbox
+Restore Base - This will restore the Main base content from the Base.original
 
-making vbs for minimize and undominimize
+Open Base Folder - This will open the main base folder
 
-making interface message box
+Open Source Folder - This will open the builded source folder
 
-adding line to settings.ini
+==============
+# Build Packages
+==============
 
-correction of some little bug
+Build All - This will build all source exemple: core, languages, themes etc....
 
-making gui interface
+Build Themes - This will build all Themes source exemple: BLUE, BLACK, ORIGINAL etc....
 
-making setup file for XMBM Builder Toolkit
+Build Core - This will build core source with default theme and language
 
-adding run XMBM+ Builder in last page of installer
+Build Languages - This will build all Languages source exemple: English.pkg French.pkg etc....
 
-make version visible in installer
+Build Core (Custom) - This will build core source with pre-defined theme and language
 
-compress exe files with upx
+Build Core (Beta) - This will build beta/RC core exemple: if you add function to base, build it as Beta
 
-adding Open Output Folder in Standard and Advanced categories
+Open Source Folder - This will open the builded source folder
 
-corrected false version information
+Open Output Folder - This will open builded packages folder
 
-added possibility to change version info in about page
+==============
+# Advanced Build
+==============
 
-added ''Update About box'' Informations button 
+Build Language - This will scan and detect available languages in base\languages\ directory and let you select the one you want build
 
-added ''Open dat01 Folder'' to update About box Informations
+Build Theme - This will scan and detect available themes in base\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
 
-moved Dropbox Config option to Distribution
+Build Custom Package - This will scan and detect available packages sources and let you select the one you want build
 
-removed encoding_prep (because already include in all batch options)
+Manual Packager - This will open psn_package_npdrm or make_package_npdrm command line to show command that allowing packing
 
-removed pkg compiler selector from build source
+Open Source Folder - This will open the builded source folder
 
-recoded original pkg compiler selector
+Open Output Folder - This will open builded packages folder
 
-added pgk compiler selector in Settings Options+ category  
+==========
+# Distribution
+==========
 
-created 2 news message box
+Distribute All Packages - This will distribute in your dropbox all packages found in output folder
 
-adding border frame in all batch
+Distributes Core Packages - This will distribute in your dropbox all Core packages found in output folder
 
-recoded dropbox configuration batch for compatibility with pkg compiler selector
+Distributes Languages Packages - This will distribute in your dropbox all Languages packages found in output folder
 
-adding Open Source Folder button in Standard Build category 
+Distributes Themes Packages - This will distribute in your dropbox all Themes packages found in output folder    
 
-adding Open Source Folder button in Advanced Build category 
+Manual Distribute - This will scan and detect all available package in output folder and let you select the one you want distribute
 
-re-adding Dropbox Config in Settings Options+ category 
+Sincronize Base Source - This allow to sincronize Dropbox source from Local source or vice versa
 
-updated Base to v0.22
+Open Dropbox Folder - This will open you dropbox folder to allow viewing your XMBM+ distribution directory
 
-coded language core batch to choose the language of your Core pkg 
+========
+# Settings
+========
 
-coded set base version batch to enter the good base version in the file base_lang_ver.ini
+Change Working Version - This will change the version of you base source
 
-re-organisation GUI menu
+Change Dropbox Path - This allow user to set the dropbox location
 
-added 2 new batch from andreus to make new languages &amp; themes
+Change PKG Compiler - This allow user to set compiler between psn_package_npdrm.exe (Hacked Version) and make_package_npdrm.exe (Official from Sony 'debug')
 
+Edit Settings - This will open settings.ini to allow editing 
 
-(THANKS to andreus)
+Toggle Sound - This will enable or disable GUI Menu sound
 
-finding pkg compiler selector function in Build Source batch that dont need to be
+Update Bin From GitHub - This will update the current base and base.original to the latest available on the git of XMBM-Manager-Plus
 
-updated Base to v0.22
+=========================
+# About XMBM+ Toolkit Builder
+=========================
 
-help to resolve many batch problem
+This will showing the about box to show information about this release and the team have make it
 
-coded to 2 batch to make new languages &amp; themes
+(This will show the page where you are viewing this - LOL)
 
-suggestion for re-organisation of GUI menu
- 
- 
-(THANKS to PS3hen)
+==================================
+# Credit for XMBM+ Gui Builder Toolkit 0.40
+==================================
 
-corrected error value in encoding_prep for /d fontsize 000c0000 to 00786432
+GUI: XiorgON
+Batch: XiorgON, PS3hen, andreus
+Images: Berion
 
-find error compatibility in encoding_prep.bat with new divided batch
+=============================
+# Thanks to all the Team of XMBM+
+=============================
 
-corrected referring string in updatesource.bat
+-  Aldostools (coding)
+-  andreus (coding, translator)
+-  Berion (official logos)
+-  bitsbubba (coding, themes)
+-  CloneD (themes, tester, videos)
+-  DeViL303 (coding, POC/WIP)
+-  ps3Hen (coding, 4.00 port, translator, batch toolkit)
+-  XiorgON (tester, translator, coding, GUI tookit)
+-  xlsound (images)
+-  wawryn (translator)
 
+++ if i forget someone  thanks you to
 
-(THANKS aldostools)
+===================
+# Source/Development
+===================
 
-suggest to adding run XMBM+ Builder in last page of installer
+As a team we believe in open collaboration which means sharing everything so everyone can understand if they want to.
 
-suggest to make version visible in installer
+The Development Page, this is where we discuss/plan for the XMBM+. If you have any ideas/suggestions send them there.
 
-suggest to compress exe files with upx
+The entire source in available for download in the git
 
-suggest to adding Open Output Folder in Standard and Advanced Categorie
+-  Development page: http://www.ps3crunch.net/forum/threads/2431
 
-suggest to dont Base and Batch version in installer</Body>
+-  Git: https://github.com/xmb-manager-plus
+
+All packages are compiled with the XMBM+ Builder Toolkit
+With the XMBM+ Builder Toolkit you can create your own XMBM+ themes and language packs and ++.</Body>
 <NormalColor>0</NormalColor>
 <HighlightColor>0</HighlightColor>
 <MouseDownColor>0</MouseDownColor>
@@ -9670,6 +9705,129 @@ suggest to dont Base and Batch version in installer</Body>
 </OriginalRect>
 </Text>
 </Object>
+<Object>
+<Type>0</Type>
+<Name>Button1</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip>Open XMBM+ GitHub thread</ToolTip>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>0</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>344</Top>
+<Bottom>371</Bottom>
+<Left>20</Left>
+<Right>381</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>147700416</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>1563387136</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>147701568</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>-1674681218</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions>
+<Action>
+<Type>6</Type>
+<Name>View Website</Name>
+<Exit>0</Exit>
+<Website>https://github.com/xmb-manager-plus</Website>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+</Action>
+</Actions>
+<BUTTON>
+<Filename>DATA\Buttons\gray_4.btn</Filename>
+<Style>0</Style>
+<State>0</State>
+<Caption>XMBM+ GitHub thread</Caption>
+<Align>1</Align>
+<UpColor>0</UpColor>
+<HighlightColor>16777215</HighlightColor>
+<DownColor>128</DownColor>
+<DisabledColor>16777215</DisabledColor>
+<FontData>
+<FontName>Verdana</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-12</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<CapXOff>0</CapXOff>
+<CapYOff>0</CapYOff>
+<LeftMargin>0</LeftMargin>
+<RightMargin>0</RightMargin>
+<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>1</MouseClickSndMode>
+<MouseClickSound/>
+</BUTTON>
+</Object>
 <HGuidelines/>
 <VGuidelines/>
 </Page>
@@ -9696,7 +9854,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <TimeStampFilesCDRW>0</TimeStampFilesCDRW>
 <TimeStampFilesISO>0</TimeStampFilesISO>
 <ISOImageFile/>
-<SelfExtractingZIPfile>C:\Users\André Silva\Documents\AutoPlay Media Studio 8\Output\XMBM+_Builder_Toolkit_v0.30.exe</SelfExtractingZIPfile>
+<SelfExtractingZIPfile>C:\XMBM+_Builder_Toolkit_v0.40.exe</SelfExtractingZIPfile>
 <ZIPMessage>Loading</ZIPMessage>
 <ZIPShowProgress>1</ZIPShowProgress>
 <CDVolumeIdentifier>NEWDISC</CDVolumeIdentifier>
