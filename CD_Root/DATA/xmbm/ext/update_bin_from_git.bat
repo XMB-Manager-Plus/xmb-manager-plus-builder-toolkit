@@ -28,15 +28,20 @@ If /I %choice%==n goto :first
 goto :ask_confirm
 
 :ok
-%external%\wget --no-check-certificate %git_toolkit_page%/zipball/master -O xmbmp.zip
-%external%\unzip -o -qq xmbmp.zip
-del /Q /S xmbmp.zip
-move "*xmb-manager-plus*" "new-version"
-::del /Q /S "%external%\new-version\README*"
-rmdir /Q /S "%external%\new-version\ext"
 rmdir /Q /S "%bindir%"
-move "%external%\new-version\CD_Root\DATA\xmbm\bin" "%bindir%"
-rmdir /Q /S "%external%\new-version"
+%external%\wget --no-check-certificate %git_toolkit_page%/zipball/master -O xmbmpbt.zip
+%external%\unzip -o -qq xmbmpbt.zip -d "%TEMP%"
+move "%TEMP%\XMB-Manager-Plus*" "%TEMP%\xmbmpbt"
+move "%TEMP%\xmbmpbt\CD_Root\DATA\xmbm\bin" "%bindir%"
+rmdir /Q /S "%TEMP%\xmbmpbt"
+del /Q /S xmbmpbt.zip
+rmdir /Q /S "%bindir%\base.original"
+%external%\wget --no-check-certificate %git_base_page%/zipball/master -O xmbmp.zip
+%external%\unzip -o -qq xmbmp.zip -d "%TEMP%"
+move "%TEMP%\XMB-Manager-Plus*" "%TEMP%\xmbmp"
+move "%TEMP%\xmbmp" "%bindir%\base.original"
+del /Q /S "%bindir%\base.original\README*"
+del /Q /S xmbmp.zip
 
 :end
 exit
