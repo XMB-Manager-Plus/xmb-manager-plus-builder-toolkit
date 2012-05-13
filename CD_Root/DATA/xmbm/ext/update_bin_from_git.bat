@@ -36,20 +36,19 @@ move "%TEMP%\xmbmpbt\CD_Root\DATA\xmbm\bin" "%bindir%"
 rmdir /Q /S "%TEMP%\xmbmpbt"
 del /Q /S xmbmpbt.zip
 
-rmdir /Q /S "%bindir%\base.original"
+rmdir /Q /S "%pkgbaseoriginalsources%"
 %external%\wget --no-check-certificate %git_base_page%/zipball/master -O xmbmp.zip
 %external%\unzip -o -qq xmbmp.zip -d "%TEMP%"
 move "%TEMP%\XMB-Manager-Plus*" "%TEMP%\xmbmp"
-move "%TEMP%\xmbmp" "%bindir%\base.original"
-del /Q /S "%bindir%\base.original\README*"
+move "%TEMP%\xmbmp" "%pkgbasexmbmp%"
+del /Q /S "%pkgbasexmbmp%\README*"
 del /Q /S xmbmp.zip
 
-rmdir /Q /S "%bindir%\base-flash"
 %external%\wget --no-check-certificate %git_baseflash_page%/zipball/master -O xmbmpf.zip
 %external%\unzip -o -qq xmbmpf.zip -d "%TEMP%"
 move "%TEMP%\XMB-Manager-Plus*" "%TEMP%\xmbmpf"
-move "%TEMP%\xmbmpf" "%bindir%\base-flash"
-del /Q /S "%bindir%\base-flash\README*"
+move "%TEMP%\xmbmpf" "%pkgbaseflash%"
+del /Q /S "%pkgbaseflash%\README*"
 del /Q /S xmbmpf.zip
 
 :end

@@ -1,6 +1,6 @@
-[submodule "CD_Root/DATA/xmbm/bin/base.original"]
-	path = CD_Root/DATA/xmbm/bin/base.original
+[submodule "CD_Root/DATA/xmbm/bin/base-sources.original/xmbmp"]
+	path = CD_Root/DATA/xmbm/bin/base-sources.original/xmbmp
 	url = git://github.com/XMB-Manager-Plus/xmb-manager-plus.git
-[submodule "CD_Root/DATA/xmbm/bin/base-flash"]
-	path = CD_Root/DATA/xmbm/bin/base-flash
+[submodule "CD_Root/DATA/xmbm/bin/base-sources.original/flash"]
+	path = CD_Root/DATA/xmbm/bin/base-sources.original/flash
 	url = git://github.com/XMB-Manager-Plus/xmb-manager-plus-flash.git

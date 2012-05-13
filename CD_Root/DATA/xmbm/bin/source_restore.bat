@@ -31,8 +31,8 @@ goto :ask_confirm
 call "%bindir%\global_messages.bat" "SOURCE-RESTORING"
 if exist "%pkgsource%" rmdir /Q /S "%pkgsource%"
 if exist "%pkgoutput%" rmdir /Q /S "%pkgoutput%"
-if exist "%pkgbase%" rmdir /Q /S "%pkgbase%"
-xcopy /E "%bindir%\base.original" "%pkgbase%\" >NUL
+if exist "%pkgbasesources%" rmdir /Q /S "%pkgbasesources%"
+xcopy /E "%pkgbaseoriginalsources%" "%pkgbasesources%\" >NUL
 
 :done
 call "%bindir%\global_messages.bat" "SOURCE-RESTORING-OK"

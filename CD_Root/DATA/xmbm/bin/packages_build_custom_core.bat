@@ -66,7 +66,7 @@ echo.
 %external%\cecho {04}        Û{08} ษออออออออออออออออออออออออออออออออออออออออออออออออป {04}Û{\n}
 %external%\cecho {08}        ศอผ                                                ศอผ{\n}
 set counter=0
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbase%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
 set /a counter += 1
 %external%\cecho {0F}           !counter!. %%Y {\n}
 )
@@ -78,7 +78,7 @@ echo.
 :ask_theme
 set /p themenum= Choose a theme: 
 set counter=0
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbase%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
 set /a counter += 1
 if [!counter!]==[%themenum%] (
 set themesrc=%%Y

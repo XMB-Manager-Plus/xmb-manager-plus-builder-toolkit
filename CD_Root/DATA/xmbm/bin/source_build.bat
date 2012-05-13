@@ -16,7 +16,7 @@ if exist "%pkgsource%\languagepacks" rmdir /Q /S "%pkgsource%\languagepacks"
 for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
 echo - %%X language pack source files ...
 if not exist "%pkgsource%\languagepacks\%%X\XMBMANPLS" mkdir "%pkgsource%\languagepacks\%%X\XMBMANPLS"
-xcopy /E "%pkgbase%\XMBMANPLS\*.*" "%pkgsource%\languagepacks\%%X\XMBMANPLS" >NUL
+xcopy /E "%pkgbasexmbmp%\XMBMANPLS\*.*" "%pkgsource%\languagepacks\%%X\XMBMANPLS" >NUL
 if exist "%pkgsource%\languagepacks\%%X\XMBMANPLS\*.pkg" del /Q /S "%pkgsource%\languagepacks\%%X\XMBMANPLS\*.pkg" >NUL
 if exist "%pkgsource%\languagepacks\%%X\XMBMANPLS\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\XMBMANPLS\USRDIR\IMAGES" >NUL
 if exist "%pkgsource%\languagepacks\%%X\XMBMANPLS\USRDIR\THEMES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\XMBMANPLS\USRDIR\THEMES" >NUL
@@ -42,11 +42,11 @@ echo.
 echo CREATING theme packs source files ...
 echo.
 if exist "%pkgsource%\themepacks" rmdir /Q /S "%pkgsource%\themepacks"
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbase%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
 echo - %%Y theme pack source files ...
 
 if not exist "%pkgsource%\themepacks\%%Y\XMBMANPLS" mkdir "%pkgsource%\themepacks\%%Y\XMBMANPLS"
-xcopy /E "%pkgbase%\XMBMANPLS\*.*" "%pkgsource%\themepacks\%%Y\XMBMANPLS" >NUL
+xcopy /E "%pkgbasexmbmp%\XMBMANPLS\*.*" "%pkgsource%\themepacks\%%Y\XMBMANPLS" >NUL
 if exist "%pkgsource%\themepacks\%%Y\XMBMANPLS\*.pkg" del /Q /S "%pkgsource%\themepacks\%%Y\XMBMANPLS\*.pkg" >NUL
 if exist "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\*.xml" del /Q /S "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\FEATURES" >NUL
@@ -54,7 +54,7 @@ move /Y "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES\%%Y" "%pkgsource%\th
 if exist "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES" >NUL
 echo rename "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\%%Y" "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES"
 rename %pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\%%Y IMAGES
-copy "%pkgbase%\XMBMANPLS\USRDIR\IMAGES\%%Y\themeinfo.xml" "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES\themeinfo.xml"
+copy "%pkgbasexmbmp%\XMBMANPLS\USRDIR\IMAGES\%%Y\themeinfo.xml" "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES\themeinfo.xml"
 for /f "tokens=1,2 delims=." %%S IN ('dir /b %languageinisdir%\*.ini') DO (
 for /f "tokens=1,2 delims==" %%G in (%languageinisdir%\%%S.ini) DO (
 IF [%%G]==[LANG_TITL_SETTINGS-THEMES-PACKS-%%Y] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\XMBMANPLS\USRDIR\IMAGES" --include "themeinfo.xml" --alter --search "[%%S]_TITL_SETTINGS-THEMES-PACKS" --replace "%%H"
@@ -70,7 +70,7 @@ FOR %%A IN (hdd0 usb000 usb001 usb006) DO (
 echo - core %%A source files ...
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\XMBMANPLS" mkdir "%pkgsource%\core-%%A\XMBMANPLS" >NUL
-xcopy /E "%pkgbase%\XMBMANPLS\*.*" "%pkgsource%\core-%%A\XMBMANPLS" >NUL
+xcopy /E "%pkgbasexmbmp%\XMBMANPLS\*.*" "%pkgsource%\core-%%A\XMBMANPLS" >NUL
 if exist "%pkgsource%\core-%%A\XMBMANPLS\USRDIR\*.xml" del /Q /S "%pkgsource%\core-%%A\XMBMANPLS\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\core-%%A\XMBMANPLS\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-%%A\XMBMANPLS\USRDIR\FEATURES" >NUL
 if exist "%pkgsource%\core-%%A\XMBMANPLS\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\core-%%A\XMBMANPLS\USRDIR\IMAGES" >NUL
@@ -93,7 +93,7 @@ echo CREATING HFW core source files ...
 echo.
 if exist "%pkgsource%\core-HFW" rmdir /Q /S "%pkgsource%\core-HFW" >NUL
 if not exist "%pkgsource%\core-HFW\XMBMANPLS" mkdir "%pkgsource%\core-HFW\XMBMANPLS" >NUL
-xcopy /E "%pkgbase%\XMBMANPLS\*.*" "%pkgsource%\core-HFW\XMBMANPLS" >NUL
+xcopy /E "%pkgbasexmbmp%\XMBMANPLS\*.*" "%pkgsource%\core-HFW\XMBMANPLS" >NUL
 if exist "%pkgsource%\core-HFW\XMBMANPLS\USRDIR\*.xml" del /Q /S "%pkgsource%\core-HFW\XMBMANPLS\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\core-HFW\XMBMANPLS\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-HFW\XMBMANPLS\USRDIR\FEATURES" >NUL
 if exist "%pkgsource%\core-HFW\XMBMANPLS\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\core-HFW\XMBMANPLS\USRDIR\IMAGES" >NUL

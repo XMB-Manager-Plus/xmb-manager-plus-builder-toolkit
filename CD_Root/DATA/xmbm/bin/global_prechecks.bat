@@ -3,9 +3,9 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 
 call "%bindir%\global_messages.bat" "CHECKING"
 
-IF NOT EXIST "%pkgbase%\" (
-mkdir "%pkgbase%" >NUL
-xcopy /E "%bindir%\base.original\*.*" "%bindir%\base\" >NUL
+IF NOT EXIST "%pkgbasesources%\" (
+mkdir "%pkgbasesources%" >NUL
+xcopy /E "%pkgbaseoriginalsources%\*.*" "%pkgbasesources%\" >NUL
 )
 
 IF NOT EXIST "%pkgsource%\" mkdir "%pkgsource%" >NUL
