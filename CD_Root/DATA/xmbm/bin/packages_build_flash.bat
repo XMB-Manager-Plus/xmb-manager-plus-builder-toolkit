@@ -13,19 +13,19 @@ if not exist "%pkgsource%\flash" mkdir "%pkgsource%\flash"
 xcopy /E "%pkgbaseflash%\*.*" "%pkgsource%\flash" >NUL
 FOR /F "tokens=*" %%A IN ('CD') DO FOR %%B IN (%%~A) DO SET CurDir=%%B
 
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\XMBMPFLSH\USRDIR\resource\*.355') DO (
-cd "%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X"
-"%CurDir%\%external%\rcomage\Rcomage\rcomage.exe" compile "%CurDir%\%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X\%%X.xml" "%CurDir%\%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X.rco"
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\PKGMANAGE\USRDIR\resource\*.355') DO (
+cd "%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X"
+"%CurDir%\%external%\rcomage\Rcomage\rcomage.exe" compile "%CurDir%\%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X\%%X.xml" "%CurDir%\%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X.rco"
 cd %CurDir%
-rmdir /Q /S "%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X
+rmdir /Q /S "%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X
 )
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\XMBMPFLSH\USRDIR\resource\*.341') DO (
-cd "%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X"
-"%CurDir%\%external%\rcomage\Rcomage\rcomage.exe" compile "%CurDir%\%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X\%%X.xml" "%CurDir%\%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X.rco"
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\PKGMANAGE\USRDIR\resource\*.341') DO (
+cd "%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X"
+"%CurDir%\%external%\rcomage\Rcomage\rcomage.exe" compile "%CurDir%\%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X\%%X.xml" "%CurDir%\%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X.rco"
 cd %CurDir%
-rmdir /Q /S "%pkgsource%\flash\XMBMPFLSH\USRDIR\resource\%%X
+rmdir /Q /S "%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X
 )
-%external%\%packager% package-flash.conf %pkgsource%\flash\XMBMPFLSH
+%external%\%packager% package-flash.conf %pkgsource%\flash\PKGMANAGE
 if exist "%pkgsource%\flash" rmdir /Q /S "%pkgsource%\flash"
 rename UP0001-XMBMPFLSH_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Flash.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
