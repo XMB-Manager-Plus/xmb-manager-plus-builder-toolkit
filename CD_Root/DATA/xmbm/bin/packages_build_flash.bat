@@ -27,7 +27,7 @@ rmdir /Q /S "%pkgsource%\flash\PKGMANAGE\USRDIR\resource\%%X
 )
 %external%\%packager% package-flash.conf %pkgsource%\flash\PKGMANAGE
 if exist "%pkgsource%\flash" rmdir /Q /S "%pkgsource%\flash"
-rename UP0001-XMBMPFLSH_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Flash.pkg
+rename UP0001-PKGMANAGE_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Flash.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move %bindir%\*.pkg "%pkgoutput%\"
 call "%bindir%\global_messages.bat" "BUILD-OK"
