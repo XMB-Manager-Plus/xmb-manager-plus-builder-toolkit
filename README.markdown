@@ -47,9 +47,9 @@ Open Output Folder - This will open builded packages folder
 
 ### Advanced Build
 
-Build Language - This will scan and detect available languages in base\languages\ directory and let you select the one you want build
+Build Language - This will detect available languages in base\languages\ directory and let you select the one you want build
 
-Build Theme - This will scan and detect available themes in base\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
+Build Theme - This detect available themes in base\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
 
 Build Custom Package - This will scan and detect available packages sources and let you select the one you want build
 
@@ -58,6 +58,7 @@ Manual Packager - This will open psn_package_npdrm or make_package_npdrm command
 Open Source Folder - This will open the builded source folder
 
 Open Output Folder - This will open builded packages folder
+
 
 ### Distribution
 
@@ -69,11 +70,12 @@ Distributes Languages Packages - This will distribute in your dropbox all Langua
 
 Distributes Themes Packages - This will distribute in your dropbox all Themes packages found in output folder
 
-Manual Distribute - This will scan and detect all available package in output folder and let you select the one you want distribute
+Manual Distribute - This detect all available package in output folder and let you select the one you want distribute
 
 Sincronize Base Source - This allow to sincronize Dropbox source from Local source or vice versa
 
 Open Dropbox Folder - This will open you dropbox folder to allow viewing your XMBM+ distribution directory
+
 
 ### Settings
 
@@ -81,13 +83,14 @@ Change Working Version - This will change the version of you base source
 
 Change Dropbox Path - This allow user to set the dropbox location
 
-Change PKG Compiler - This allow user to set compiler between psn_package_npdrm.exe (Hacked Version) and make_package_npdrm.exe (Official from Sony 'debug')
+Change PKG Compiler - This let you set the compiler between psn_package_npdrm.exe (Hacked) and make_package_npdrm.exe (debug)
 
 Edit Settings - This will open settings.ini to allow editing from the user
 
 Toggle Sound - This will enable or disable GUI Menu sound
 
-Update Bin From GitHub - This will update the current base and base.original to the latest available on the git of XMB-Manager-Plus
+Update Bin From GitHub - This will update the current base to the latest available on the git of XMB-Manager-Plus
+
 
 ### About XMBM+ Toolkit Builder
 
