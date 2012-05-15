@@ -7,43 +7,43 @@ XMB Manager Plus (XMBM+) Builder Toolkit is a application that allow user to cre
 
 ### Build Sources
 
-Add Language - This allow user to create new language.ini
+Add Language: Allows users to create new languages in the main base source
 
-Add Theme - This allow user to create new theme
+Add Theme: Allows users to create to create new themes in the main base source
 
-Add Personal Area - This allow user to create Personal Area: Link, Folder, Packages
+Add Personal Area: Allows users to create their own Personal Area: Links, Folders and Packages in the main base source
 
-Edit Features - This will open base\XMBMANPLS\USRDIR\FEATURES directory to allow editing content
+Edit Features: Will open base\XMBMANPLS\USRDIR\FEATURES directory to allow editing XMBM+ features in the main base source
 
-Edit Languages - This will open This will open base\languages directory to allow editing content
+Edit Languages: Will open base\languages directory to allow editing XMBM+ languages in the main base source
 
-Edit Themes - This will open base\XMBMANPLS\USRDIR\IMAGES directory to allow editing content
+Edit Themes: Will open base\XMBMANPLS\USRDIR\IMAGES directory to allow editing content in the main base source
 
-Build Source - This will build needed source to build XMBM+ packages
+Build Source: Will build the packages sources in order to build XMBM+ packages
 
-Restore Base - This will restore the Main base content from the Base.original
+Restore Base: Will restore the main base source to is original
 
-Open Base Folder - This will open the main base\XMBMANPLS\USRDIR folder
+Open Base Folder: Will open the main base source base\XMBMANPLS\USRDIR folder
 
-Open Source Folder - This will open the builded source folder
+Open Source Folder: Will open the packages sources folder
 
 ### Build Packages
 
-Build All - This will build all source exemple: core, languages, themes etc....
+Build All: Will build all packages from packages sources (example: core, languages, themes, etc...)
 
-Build Themes - This will build all Themes source exemple: BLUE, BLACK, ORIGINAL etc....
+Build Themes: Will build all themes packages from packages sources (example: BLUE, BLACK, ORIGINAL, etc...)
 
-Build Core - This will build core source with default theme and language
+Build Core: Will build the core package from packages sources (with default theme and language)
 
-Build Languages - This will build all Languages source exemple: English.pkg French.pkg etc....
+Build Languages: Will build all languages packages from packages sources (example: en-US, de-DE, es-Es, pt-PT, etc...)
 
-Build Core (Custom) - This will build core source with pre-defined theme and language
+Build Core (Custom): Will build the core package from packages sources (with custom theme and language)
 
-Build Core (Beta) - This will build beta/RC core exemple: if you add function to base, build it as Beta
+Build Core (Beta): Will build a beta/RC core package from packages sources
 
-Open Source Folder - This will open the builded source folder
+Open Source Folder: Will open the packages sources folder
 
-Open Output Folder - This will open builded packages folder
+Open Output Folder: Will open builded packages folder
 
 ### Advanced Build
 
