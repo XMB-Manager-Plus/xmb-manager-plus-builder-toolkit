@@ -4,7 +4,7 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 call "%bindir%\global_prechecks.bat" %0
 
 :first
-if not exist %pkgsource%\core-hdd0\XMBMANPLS goto :error_source
+if not exist %pkgsource%\core-hdd0\%id_xmbmp% goto :error_source
 cls
 echo.
 echo.
@@ -66,7 +66,7 @@ echo.
 %external%\cecho {04}        Û{08} ษออออออออออออออออออออออออออออออออออออออออออออออออป {04}Û{\n}
 %external%\cecho {08}        ศอผ                                                ศอผ{\n}
 set counter=0
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\APPTITLID\USRDIR\IMAGES\*.') DO (
 set /a counter += 1
 %external%\cecho {0F}           !counter!. %%Y {\n}
 )
@@ -78,7 +78,7 @@ echo.
 :ask_theme
 set /p themenum= Choose a theme: 
 set counter=0
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\XMBMANPLS\USRDIR\IMAGES\*.') DO (
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\APPTITLID\USRDIR\IMAGES\*.') DO (
 set /a counter += 1
 if [!counter!]==[%themenum%] (
 set themesrc=%%Y
@@ -90,12 +90,12 @@ goto :ask_theme
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
 if exist "%pkgsource%\custom" rmdir /Q /S "%pkgsource%\custom"
-mkdir "%pkgsource%\custom\XMBMANPLS"
-xcopy %pkgsource%\core-hdd0\XMBMANPLS\*.* /e /y %pkgsource%\custom\XMBMANPLS\
-xcopy %pkgsource%\languagepacks\%langsrc%\XMBMANPLS\USRDIR\*.* /e /y %pkgsource%\custom\XMBMANPLS\USRDIR\
-xcopy %pkgsource%\themepacks\%themesrc%\XMBMANPLS\USRDIR\IMAGES\*.* /e /y %pkgsource%\custom\XMBMANPLS\USRDIR\IMAGES\
-%external%\%packager% package.conf %pkgsource%\custom\XMBMANPLS
-rename UP0001-XMBMANPLS_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core-%langsrc%-%themesrc%.pkg
+mkdir "%pkgsource%\custom\%id_xmbmp%"
+xcopy %pkgsource%\core-hdd0\%id_xmbmp%\*.* /e /y %pkgsource%\custom\%id_xmbmp%\
+xcopy %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\USRDIR\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\
+xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\IMAGES\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\IMAGES\
+%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\custom\%id_xmbmp%
+rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core-%langsrc%-%themesrc%.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move %bindir%\*.pkg "%pkgoutput%\"
 if exist "%pkgsource%\custom" rmdir /Q /S "%pkgsource%\custom"

@@ -4,7 +4,7 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 call "%bindir%\global_prechecks.bat" %0
 
 :first
-if not exist %pkgsource%\core-hdd0\XMBMANPLS goto :error_source
+if not exist %pkgsource%\core-hdd0\%id_xmbmp% goto :error_source
 SETLOCAL ENABLEDELAYEDEXPANSION
 cls
 echo.
@@ -59,10 +59,19 @@ if ["%pkgname%"]==[""] goto :ask_name
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
-%external%\%packager% package.conf %pkgsource%\%sourcesrc%\XMBMANPLS
-rename UP0001-XMBMANPLS_00-0000000000000000.pkg %pkgname%.pkg
+if [%sourcesrc%]==[flash] goto :build_flash
+%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
+rename UP0001-%id_xmbmp%_00-0000000000000000.pkg %pkgname%.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move "%bindir%\*.pkg" "%pkgoutput%"
+goto :done
+
+:build_flash
+%external%\%packager% %pkgsource%\package-flash.conf %pkgsource%\%sourcesrc%\%id_xmbmp_flash%
+rename UP0001-%id_xmbmp_flash%_00-0000000000000000.pkg %pkgname%.pkg
+if not exist "%pkgoutput%" mkdir "%pkgoutput%"
+move "%bindir%\*.pkg" "%pkgoutput%"
+goto :done
 
 :done
 call "%bindir%\global_messages.bat" "BUILD-OK"

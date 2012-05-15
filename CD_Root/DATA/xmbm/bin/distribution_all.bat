@@ -4,7 +4,7 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 call "%bindir%\global_prechecks.bat" %0
 
 :first
-if not exist %pkgsource%\core-hdd0\XMBMANPLS goto :error_source
+if not exist %pkgsource%\core-hdd0\%id_xmbmp% goto :error_source
 if not exist %pkgoutput%\*.pkg goto :error_packages
 if not exist %dropboxdir%\Public\XMBMPLUS\RELEASES\UPDATES goto :error_dropbox
 call "%bindir%\global_messages.bat" "DISTRIBUTION"
