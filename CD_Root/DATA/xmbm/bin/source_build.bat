@@ -16,6 +16,7 @@ if not exist "%pkgsource%\flash\%id_xmbmp_flash%" mkdir "%pkgsource%\flash\%id_x
 xcopy /E "%pkgbaseflash%\APPTITLID\*.*" "%pkgsource%\flash\%id_xmbmp_flash%" >NUL
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 FOR /F "tokens=*" %%A IN ('CD') DO FOR %%B IN (%%~A) DO SET CurDir=%%B
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.355') DO (
 cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
