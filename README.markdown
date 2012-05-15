@@ -103,16 +103,7 @@ This will showing the about box to show information about this release and the t
 
 ## Team XMBM+
 
--  Aldostools (coding)
--  andreus (coding, translator)
--  Berion (official logos)
--  bitsbubba (coding, themes)
--  CloneD (themes, tester, videos)
--  DeViL303 (coding, POC/WIP)
--  ps3Hen (coding, 4.00 port, translator, batch toolkit)
--  XiorgON (tester, translator, coding, GUI tookit)
--  xlsound (images)
--  wawryn (translator)
+-  Aldostools (coding)-  andreus (coding, translator)-  Berion (official logos)-  bitsbubba (coding, themes)-  CloneD (themes, tester, videos)-  DeViL303 (coding, POC/WIP)-  ps3Hen (coding, 4.00 port, translator, batch toolkit)-  XiorgON (tester, translator, coding, GUI tookit)-  xlsound (images)-  wawryn (translator)
 
 ## Source/Development
 
