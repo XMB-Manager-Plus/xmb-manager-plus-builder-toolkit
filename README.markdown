@@ -67,8 +67,8 @@ Distributes Core Packages - This will distribute in your dropbox all Core packag
 
 Distributes Languages Packages - This will distribute in your dropbox all Languages packages found in output folder
 
-Distributes Themes Packages - This will distribute in your dropbox all Themes packages found in output folder   
- 
+Distributes Themes Packages - This will distribute in your dropbox all Themes packages found in output folder
+
 Manual Distribute - This will scan and detect all available package in output folder and let you select the one you want distribute
 
 Sincronize Base Source - This allow to sincronize Dropbox source from Local source or vice versa
@@ -84,7 +84,7 @@ Change Dropbox Path - This allow user to set the dropbox location
 Change PKG Compiler - This allow user to set compiler between psn_package_npdrm.exe (Hacked Version) and make_package_npdrm.exe (Official from Sony 'debug')
 
 Edit Settings - This will open settings.ini to allow editing from the user
- 
+
 Toggle Sound - This will enable or disable GUI Menu sound
 
 Update Bin From GitHub - This will update the current base and base.original to the latest available on the git of XMB-Manager-Plus
@@ -103,7 +103,15 @@ This will showing the about box to show information about this release and the t
 
 ## Team XMBM+
 
--  Aldostools (coding) -  andreus (coding, translator) -  Berion (official logos) -  bitsbubba (coding, themes) -  CloneD (themes, tester, videos) -  DeViL303 (coding, POC/WIP) -  ps3Hen (coding, 4.00 port, translator, batch toolkit) -  XiorgON (tester, translator, coding, GUI tookit) -  xlsound (images) -  wawryn (translator)
+-  Aldostools (coding)
+-  andreus (coding, translator)
+-  Berion (official logos)
+-  bitsbubba (coding, themes)
+-  CloneD (themes, tester, videos)
+-  DeViL303 (coding, POC/WIP)
+-  ps3Hen (coding, 4.00 port, translator, batch toolkit)
+-  XiorgON (tester, translator, coding, GUI tookit)
+-  xlsound (images) -  wawryn (translator)
 
 ## Source/Development
 
