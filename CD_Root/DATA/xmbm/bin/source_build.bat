@@ -14,8 +14,8 @@ echo.
 if exist "%pkgsource%\flash" rmdir /Q /S "%pkgsource%\flash"
 if not exist "%pkgsource%\flash\%id_xmbmp_flash%" mkdir "%pkgsource%\flash\%id_xmbmp_flash%"
 xcopy /E "%pkgbaseflash%\APPTITLID\*.*" "%pkgsource%\flash\%id_xmbmp_flash%" >NUL
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 FOR /F "tokens=*" %%A IN ('CD') DO FOR %%B IN (%%~A) DO SET CurDir=%%B
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.355') DO (
@@ -47,8 +47,8 @@ xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\languagepacks\%%X\%id_xmbmp
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" >NUL
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 for /f "tokens=1,2 delims==" %%G IN (%languageinisdir%\%%X.ini) DO (
 FOR /F "tokens=1,2 delims=-" %%E IN ('echo %%G') DO (
@@ -76,8 +76,8 @@ for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\APPTITLID\USRDIR\IMA
 echo - %%Y theme pack source files ...
 if not exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%" mkdir "%pkgsource%\themepacks\%%Y\%id_xmbmp%"
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\themepacks\%%Y\%id_xmbmp%" >NUL
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" >NUL
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" >NUL
@@ -103,8 +103,8 @@ echo - core %%A source files ...
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%" mkdir "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" >NUL
@@ -129,8 +129,8 @@ echo.
 if exist "%pkgsource%\core-HFW" rmdir /Q /S "%pkgsource%\core-HFW" >NUL
 if not exist "%pkgsource%\core-HFW\%id_xmbmp%" mkdir "%pkgsource%\core-HFW\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\core-HFW\%id_xmbmp%" >NUL
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-HFW\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-HFW\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-HFW\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+::%external%\ssr\ssr --nobackup --dir "%pkgsource%\core-HFW\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 if exist "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\FEATURES" >NUL
