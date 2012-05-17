@@ -4,10 +4,25 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 call "%bindir%\global_prechecks.bat" %0
 
 :first
+cls
+:ask_confirm
+set /P choice= Do you want to build the flash mod source? (Y/N): 
+If /I [%choice%]==[Y] (
+SET bflash=y
+GOTO :next
+)
+If /I [%choice%]==[N] (
+SET bflash=n
+GOTO :next
+)
+goto :ask_confirm
+
+:next
 call "%bindir%\global_messages.bat" "BUILDING"
 if exist "%pkgsource%" rmdir /Q /S "%pkgsource%"
 if not exist "%pkgsource%" mkdir "%pkgsource%"
 
+if [%bflash%]==[y] (
 echo.
 echo CREATING FLASH Mod source files ...
 echo.
@@ -30,9 +45,7 @@ cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
 cd "%CurDir%"
 rmdir /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X
 )
-
-
-
+)
 
 echo.
 echo CREATING language packs source files ...
