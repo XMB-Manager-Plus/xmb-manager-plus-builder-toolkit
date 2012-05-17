@@ -13,6 +13,7 @@ Add Theme: Allows users to create to create new themes in the main base source
 
 Add Personal Area: Allows users to create their own Personal Area: Links, Folders and Packages in the main base source
 
+<<<<<<< HEAD
 Edit Features: Allows editing XMBM+ features in the main base source by open features folder (\bin\base-sources\XMBMANPLS\USRDIR\FEATURES)
 
 Edit Languages: Allows editing XMBM+ languages in the main base source by open languages folder (\bin\base-sources\languages)
@@ -50,6 +51,45 @@ Open Output Folder: Opens builded packages folder (\output)
 Build Language: Detects available languages and let you select the one you want build a package
 
 Build Theme: Detects available themes and let you select the one you want build a package
+=======
+Edit Features: Will open base\XMBMANPLS\USRDIR\FEATURES directory to allow editing XMBM+ features in the main base source
+
+Edit Languages: Will open base\languages directory to allow editing XMBM+ languages in the main base source
+
+Edit Themes: Will open base\XMBMANPLS\USRDIR\IMAGES directory to allow editing content in the main base source
+
+Build Source: Will build the packages sources in order to build XMBM+ packages
+
+Restore Base: Will restore the main base source to is original
+
+Open Base Folder: Will open the main base source base\XMBMANPLS\USRDIR folder
+
+Open Source Folder: Will open the packages sources folder
+
+### Build Packages
+
+Build All: Will build all packages from packages sources (example: core, languages, themes, etc...)
+
+Build Themes: Will build all themes packages from packages sources (example: BLUE, BLACK, ORIGINAL, etc...)
+
+Build Core: Will build the core package from packages sources (with default theme and language)
+
+Build Languages: Will build all languages packages from packages sources (example: en-US, de-DE, es-Es, pt-PT, etc...)
+
+Build Core (Custom): Will build the core package from packages sources (with custom theme and language)
+
+Build Core (Beta): Will build a beta/RC core package from packages sources
+
+Open Source Folder: Will open the packages sources folder
+
+Open Output Folder: Will open builded packages folder
+
+### Advanced Build
+
+Build Language - This will detect available languages in base\languages\ directory and let you select the one you want build
+
+Build Theme - This detect available themes in base\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
+>>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 Build Custom Package: Scans and detects available packages sources and let you select the one you want build
 
@@ -58,6 +98,7 @@ Manual Packager: Opens psn_package_npdrm or make_package_npdrm command line to a
 Open Source Folder: Opens the packages sources folder (\sources)
 
 Open Output Folder: Opens builded packages folder (\output)
+
 
 ### Distribution
 
@@ -69,11 +110,16 @@ Distributes Languages Packages: Distributes to Dropbox the languages packages fo
 
 Distributes Themes Packages: Distributes to Dropbox the themes packages found in output folder
 
+<<<<<<< HEAD
 Manual Distribute: Detects all packages in output folder and let you select the one you want distribute
+=======
+Manual Distribute - This detect all available package in output folder and let you select the one you want distribute
+>>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 Sincronize Base Source: Allows sincronizing Dropbox base source with local base source or vice versa
 
 Open Dropbox Folder: Opens the Dropbox folder
+
 
 ### Settings
 
@@ -81,7 +127,11 @@ Change Working Version: Allows changing the version in the main base sources
 
 Change Dropbox Path: Allows changing the local dropbox location
 
+<<<<<<< HEAD
 Change PKG Compiler: Allows changing the package compiler between psn_package_npdrm.exe (Hacked) and make_package_npdrm.exe (debug)
+=======
+Change PKG Compiler - This let you set the compiler between psn_package_npdrm.exe (Hacked) and make_package_npdrm.exe (debug)
+>>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 Edit Settings: Allows changing settings.ini file
 
@@ -89,6 +139,11 @@ Toggle Sound: Allows enabling or disabling GUI menu sound
 
 Update Bin From GitHub: Updates the current bin folder (including main base sources) with the latest available from XMB-Manager-Plus git
 
+<<<<<<< HEAD
+=======
+Update Bin From GitHub - This will update the current base to the latest available on the git of XMB-Manager-Plus
+
+>>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 ### About XMBM+ Toolkit Builder
 
