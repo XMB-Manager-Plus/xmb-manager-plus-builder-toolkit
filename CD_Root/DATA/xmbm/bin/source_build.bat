@@ -4,25 +4,10 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 call "%bindir%\global_prechecks.bat" %0
 
 :first
-cls
-:ask_confirm
-set /P choice= Do you want to build the flash mod source? (Y/N): 
-If /I [%choice%]==[Y] (
-SET bflash=y
-GOTO :next
-)
-If /I [%choice%]==[N] (
-SET bflash=n
-GOTO :next
-)
-goto :ask_confirm
-
-:next
 call "%bindir%\global_messages.bat" "BUILDING"
 if exist "%pkgsource%" rmdir /Q /S "%pkgsource%"
 if not exist "%pkgsource%" mkdir "%pkgsource%"
 
-if [%bflash%]==[y] (
 echo.
 echo CREATING FLASH Mod source files ...
 echo.
@@ -32,19 +17,6 @@ xcopy /E "%pkgbaseflash%\APPTITLID\*.*" "%pkgsource%\flash\%id_xmbmp_flash%" >NU
 ::%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
 ::%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.355"') DO (
-cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
-cd "%~dp0"
-rmdir /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X
-)
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.341"') DO (
-cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
-cd "%~dp0"
-rmdir /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
-pause
-)
 )
 
 echo.
