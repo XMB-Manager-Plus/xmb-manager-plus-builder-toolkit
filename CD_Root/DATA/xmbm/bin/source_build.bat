@@ -27,7 +27,7 @@ rmdir /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.341') DO (
 cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
 "%CurDir%\%external%\rcomage\Rcomage\rcomage.exe" compile "%CurDir%\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%CurDir%\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
-cd %CurDir%
+cd "%CurDir%"
 rmdir /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X
 )
 
