@@ -13,7 +13,6 @@ Add Theme: Allows users to create to create new themes in the main base source
 
 Add Personal Area: Allows users to create their own Personal Area: Links, Folders and Packages in the main base source
 
-<<<<<<< HEAD
 Edit Features: Allows editing XMBM+ features in the main base source by open features folder (\bin\base-sources\XMBMANPLS\USRDIR\FEATURES)
 
 Edit Languages: Allows editing XMBM+ languages in the main base source by open languages folder (\bin\base-sources\languages)
@@ -51,7 +50,7 @@ Open Output Folder: Opens builded packages folder (\output)
 Build Language: Detects available languages and let you select the one you want build a package
 
 Build Theme: Detects available themes and let you select the one you want build a package
-=======
+
 Edit Features: Will open base\XMBMANPLS\USRDIR\FEATURES directory to allow editing XMBM+ features in the main base source
 
 Edit Languages: Will open base\languages directory to allow editing XMBM+ languages in the main base source
@@ -89,7 +88,6 @@ Open Output Folder: Will open builded packages folder
 Build Language - This will detect available languages in base\languages\ directory and let you select the one you want build
 
 Build Theme - This detect available themes in base\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
->>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 Build Custom Package: Scans and detects available packages sources and let you select the one you want build
 
@@ -110,11 +108,7 @@ Distributes Languages Packages: Distributes to Dropbox the languages packages fo
 
 Distributes Themes Packages: Distributes to Dropbox the themes packages found in output folder
 
-<<<<<<< HEAD
 Manual Distribute: Detects all packages in output folder and let you select the one you want distribute
-=======
-Manual Distribute - This detect all available package in output folder and let you select the one you want distribute
->>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 Sincronize Base Source: Allows sincronizing Dropbox base source with local base source or vice versa
 
@@ -127,23 +121,13 @@ Change Working Version: Allows changing the version in the main base sources
 
 Change Dropbox Path: Allows changing the local dropbox location
 
-<<<<<<< HEAD
 Change PKG Compiler: Allows changing the package compiler between psn_package_npdrm.exe (Hacked) and make_package_npdrm.exe (debug)
-=======
-Change PKG Compiler - This let you set the compiler between psn_package_npdrm.exe (Hacked) and make_package_npdrm.exe (debug)
->>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 Edit Settings: Allows changing settings.ini file
 
 Toggle Sound: Allows enabling or disabling GUI menu sound
 
 Update Bin From GitHub: Updates the current bin folder (including main base sources) with the latest available from XMB-Manager-Plus git
-
-<<<<<<< HEAD
-=======
-Update Bin From GitHub - This will update the current base to the latest available on the git of XMB-Manager-Plus
-
->>>>>>> 8d0c17a0f599416cda28c18376b83b69343d1d15
 
 ### About XMBM+ Toolkit Builder
 
