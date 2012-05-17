@@ -17,7 +17,6 @@ xcopy /E "%pkgbaseflash%\APPTITLID\*.*" "%pkgsource%\flash\%id_xmbmp_flash%" >NU
 ::%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
 ::%external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-)
 
 echo.
 echo CREATING language packs source files ...
