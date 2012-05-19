@@ -32,7 +32,6 @@ del /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.rco"
 rename UP0001-%id_xmbmp_flash%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Flash.pkg
 %external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\core-hdd0\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core.pkg
-pause
 for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\APPTITLID\USRDIR\IMAGES\*.') DO (
 %external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\themepacks\%%Y\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-THEMEPACK-%%Y.pkg
