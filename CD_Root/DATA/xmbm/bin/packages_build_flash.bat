@@ -21,7 +21,6 @@ cd "%~dp0"
 move "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\flash\"
 )
 %external%\%packager% %pkgsource%\package-flash.conf %pkgsource%\flash\%id_xmbmp_flash%
-pause
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\*.355"') DO (
 move "%pkgsource%\flash\%%X" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\"
 )
