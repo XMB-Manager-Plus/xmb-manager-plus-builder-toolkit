@@ -40,7 +40,7 @@ if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" >NUL
 %external%\binmay\binmay.exe -i %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFO -o %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
-%external%\binmay\binmay.exe -i %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+%external%\binmay\binmay.exe -i %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp%
 del /Q /S %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFO >NUL
 del /Q /S %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO >NUL
 rename %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
@@ -72,7 +72,7 @@ echo - %%Y theme pack source files ...
 if not exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%" mkdir "%pkgsource%\themepacks\%%Y\%id_xmbmp%"
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\themepacks\%%Y\%id_xmbmp%" >NUL
 %external%\binmay\binmay.exe -i %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFO -o %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
-%external%\binmay\binmay.exe -i %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+%external%\binmay\binmay.exe -i %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp%
 del /Q /S %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFO >NUL
 del /Q /S %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO >NUL
 rename %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
@@ -102,7 +102,7 @@ if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%" mkdir "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFO -o %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp%
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFO >NUL
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO >NUL
 rename %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
@@ -131,7 +131,7 @@ if exist "%pkgsource%\core-HFW" rmdir /Q /S "%pkgsource%\core-HFW" >NUL
 if not exist "%pkgsource%\core-HFW\%id_xmbmp%" mkdir "%pkgsource%\core-HFW\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\core-HFW\%id_xmbmp%" >NUL
 %external%\binmay\binmay.exe -i %pkgsource%\core-HFW\%id_xmbmp%\PARAM.SFO -o %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
-%external%\binmay\binmay.exe -i %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+%external%\binmay\binmay.exe -i %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp%
 del /Q /S %pkgsource%\core-HFW\%id_xmbmp%\PARAM.SFO >NUL
 del /Q /S %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO >NUL
 rename %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
