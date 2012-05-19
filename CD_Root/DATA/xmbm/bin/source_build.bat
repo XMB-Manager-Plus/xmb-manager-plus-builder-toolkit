@@ -16,7 +16,10 @@ if not exist "%pkgsource%\flash\%id_xmbmp_flash%" mkdir "%pkgsource%\flash\%id_x
 xcopy /E "%pkgbaseflash%\APPTITLID\*.*" "%pkgsource%\flash\%id_xmbmp_flash%" >NUL
 rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
 rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+rem hex edit eboot.elf here to change title id if needed
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+%external%\make_self\make_self_npdrm.exe "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp_flash%_00-0000000000000000
+del /Q /S %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF
 
 echo.
 echo CREATING language packs source files ...

@@ -3,3 +3,5 @@ CD_Root/AutoPlay
 CD_Root/DATA/xmbm/bin/base-sources
 CD_Root/DATA/xmbm/source
 CD_Root/DATA/xmbm/output
+CD_Root/DATA/xmbm/ext/test_out
+CD_Root/DATA/xmbm/ext/make_self/test_out
