@@ -67,26 +67,26 @@ move "%bindir%\*.pkg" "%pkgoutput%"
 goto :done
 
 :build_flash
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.355"') DO (
-cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\*.355"') DO (
+cd "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
-move "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\flash\"
+move "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\"
 )
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.341"') DO (
-cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\*.341"') DO (
+cd "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
-move "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\flash\"
+move "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\"
 )
-%external%\%packager% %pkgsource%\package-%id_xmbmp_flash%.conf %pkgsource%\flash\%id_xmbmp_flash%
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\*.355"') DO (
-move "%pkgsource%\flash\%%X" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\"
+%external%\%packager% %pkgsource%\package-%id_xmbmp_flash%.conf %pkgsource%\%sourcesrc%\%id_xmbmp_flash%
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.355"') DO (
+move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\"
 )
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\*.341"') DO (
-move "%pkgsource%\flash\%%X" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\"
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.341"') DO (
+move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\"
 )
-del /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.rco"
+del /Q /S "%pkgsource%\%sourcesrc%\%id_xmbmp_flash%\USRDIR\resource\*.rco"
 rename UP0001-%id_xmbmp_flash%_00-0000000000000000.pkg %pkgname%.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move "%bindir%\*.pkg" "%pkgoutput%"
