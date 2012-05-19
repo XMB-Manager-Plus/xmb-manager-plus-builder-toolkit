@@ -40,7 +40,7 @@ goto :ask_language
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
-%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%
+%external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-LANGUAGEPACK-%langsrc%.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move %bindir%\*.pkg "%pkgoutput%"

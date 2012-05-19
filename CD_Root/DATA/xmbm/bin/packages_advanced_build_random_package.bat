@@ -60,14 +60,33 @@ if ["%pkgname%"]==[""] goto :ask_name
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
 if [%sourcesrc%]==[flash] goto :build_flash
-%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
+%external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg %pkgname%.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move "%bindir%\*.pkg" "%pkgoutput%"
 goto :done
 
 :build_flash
-%external%\%packager% %pkgsource%\package-flash.conf %pkgsource%\%sourcesrc%\%id_xmbmp_flash%
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.355"') DO (
+cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
+cd "%~dp0"
+move "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\flash\"
+)
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.341"') DO (
+cd "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X.rco"
+cd "%~dp0"
+move "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\%%X" "%pkgsource%\flash\"
+)
+%external%\%packager% %pkgsource%\package-%id_xmbmp_flash%.conf %pkgsource%\flash\%id_xmbmp_flash%
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\*.355"') DO (
+move "%pkgsource%\flash\%%X" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\"
+)
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\flash\*.341"') DO (
+move "%pkgsource%\flash\%%X" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\"
+)
+del /Q /S "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource\*.rco"
 rename UP0001-%id_xmbmp_flash%_00-0000000000000000.pkg %pkgname%.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move "%bindir%\*.pkg" "%pkgoutput%"

@@ -8,7 +8,7 @@ if not exist %pkgsource%\core-hdd0\%id_xmbmp% goto :error_source
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
-%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\core-hdd0\%id_xmbmp%
+%external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\core-hdd0\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move %bindir%\*.pkg "%pkgoutput%\"

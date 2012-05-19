@@ -40,7 +40,7 @@ echo.
 set /p suffix= Choose a suffix: 
 if ["%suffix%"]==[""] goto :ask_suffix
 call "%bindir%\global_messages.bat" "BUILDING"
-%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\core-hdd0\%id_xmbmp%\
+%external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\core-hdd0\%id_xmbmp%\
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+%version%_%suffix%_Core.pkg
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
 move %bindir%\*.pkg "%pkgoutput%\"

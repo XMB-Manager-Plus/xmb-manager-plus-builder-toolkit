@@ -14,12 +14,17 @@ echo.
 if exist "%pkgsource%\flash" rmdir /Q /S "%pkgsource%\flash"
 if not exist "%pkgsource%\flash\%id_xmbmp_flash%" mkdir "%pkgsource%\flash\%id_xmbmp_flash%"
 xcopy /E "%pkgbaseflash%\APPTITLID\*.*" "%pkgsource%\flash\%id_xmbmp_flash%" >NUL
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
-rem hex edit eboot.elf here to change title id if needed
+%external%\binmay\binmay.exe -i %pkgsource%\flash\%id_xmbmp_flash%\PARAM.SFO -o %pkgsource%\flash\%id_xmbmp_flash%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
+%external%\binmay\binmay.exe -i %pkgsource%\flash\%id_xmbmp_flash%\PARAM_NEW.SFO -o %pkgsource%\flash\%id_xmbmp_flash%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+del /Q /S %pkgsource%\flash\%id_xmbmp_flash%\PARAM.SFO >NUL
+del /Q /S %pkgsource%\flash\%id_xmbmp_flash%\PARAM_NEW.SFO >NUL
+rename %pkgsource%\flash\%id_xmbmp_flash%\PARAM_NEW2.SFO PARAM.SFO
+%external%\binmay\binmay.exe -i %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF -o %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT_NEW.ELF -s t:APPTITLID -r t:%id_xmbmp_flash%
+del /Q /S %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF >NUL
+rename %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT_NEW.ELF EBOOT.ELF
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF" "%pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp_flash%_00-0000000000000000
-del /Q /S %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF
+del /Q /S %pkgsource%\flash\%id_xmbmp_flash%\USRDIR\EBOOT.ELF >NUL
 
 echo.
 echo CREATING language packs source files ...
@@ -34,8 +39,11 @@ xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\languagepacks\%%X\%id_xmbmp
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" >NUL
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+%external%\binmay\binmay.exe -i %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFO -o %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
+%external%\binmay\binmay.exe -i %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+del /Q /S %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFO >NUL
+del /Q /S %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW.SFO >NUL
+rename %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\%%X.ini) DO (
 FOR /F "tokens=1,2 delims=-" %%E IN ('echo %%G') DO (
@@ -63,8 +71,11 @@ for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\APPTITLID\USRDIR\IMA
 echo - %%Y theme pack source files ...
 if not exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%" mkdir "%pkgsource%\themepacks\%%Y\%id_xmbmp%"
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\themepacks\%%Y\%id_xmbmp%" >NUL
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+%external%\binmay\binmay.exe -i %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFO -o %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
+%external%\binmay\binmay.exe -i %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+del /Q /S %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFO >NUL
+del /Q /S %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW.SFO >NUL
+rename %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" >NUL
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" >NUL
@@ -90,8 +101,11 @@ echo - core %%A source files ...
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%" mkdir "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFO -o %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFO >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW.SFO >NUL
+rename %pkgsource%\core-%%A\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" >NUL
@@ -116,8 +130,11 @@ echo.
 if exist "%pkgsource%\core-HFW" rmdir /Q /S "%pkgsource%\core-HFW" >NUL
 if not exist "%pkgsource%\core-HFW\%id_xmbmp%" mkdir "%pkgsource%\core-HFW\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasexmbmp%\APPTITLID\*.*" "%pkgsource%\core-HFW\%id_xmbmp%" >NUL
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-HFW\%id_xmbmp%" --include "PARAM.SFO" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-rem %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-HFW\%id_xmbmp%" --include "PARAM.SFO" --alter --search "0.00" --replace "%working_version%"
+%external%\binmay\binmay.exe -i %pkgsource%\core-HFW\%id_xmbmp%\PARAM.SFO -o %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO -s t:0.00 -r t:%working_version%
+%external%\binmay\binmay.exe -i %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO -o %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW2.SFO -s t:APPTITLID -r t:%id_xmbmp_flash%
+del /Q /S %pkgsource%\core-HFW\%id_xmbmp%\PARAM.SFO >NUL
+del /Q /S %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW.SFO >NUL
+rename %pkgsource%\core-HFW\%id_xmbmp%\PARAM_NEW2.SFO PARAM.SFO
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 if exist "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\*.xml" >NUL
 if exist "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-HFW\%id_xmbmp%\USRDIR\FEATURES" >NUL
@@ -137,12 +154,12 @@ rmdir /s /q "%pkgsource%\core-HFW\%id_xmbmp%"
 echo.
 echo CREATING package configuration files ...
 echo.
-copy "%bindir%\package.conf.template" "%pkgsource%\package-xmbmp.conf"
-copy "%bindir%\package.conf.template" "%pkgsource%\package-flash.conf"
-%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-xmbmp.conf" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-flash.conf" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
-%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-xmbmp.conf" --alter --search "CONTENT_TYPE" --replace "%type_xmbmp%"
-%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-flash.conf" --alter --search "CONTENT_TYPE" --replace "%type_xmbmp_flash%"
+copy "%bindir%\package.conf.template" "%pkgsource%\package-%id_xmbmp%.conf"
+copy "%bindir%\package.conf.template" "%pkgsource%\package-%id_xmbmp_flash%.conf"
+%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-%id_xmbmp%.conf" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-%id_xmbmp_flash%.conf" --alter --search "APPTITLID" --replace "%id_xmbmp_flash%"
+%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-%id_xmbmp%.conf" --alter --search "CONTENT_TYPE" --replace "%type_xmbmp%"
+%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "package-%id_xmbmp_flash%.conf" --alter --search "CONTENT_TYPE" --replace "%type_xmbmp_flash%"
 %external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%" --include "*.conf" --alter --search "APP_VER = 0.00" --replace "APP_VER = %working_version%"
 
 :done

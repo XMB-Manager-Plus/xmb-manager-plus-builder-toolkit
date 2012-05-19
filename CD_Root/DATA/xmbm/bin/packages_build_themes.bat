@@ -7,7 +7,7 @@ call "%bindir%\global_prechecks.bat" %0
 if not exist %pkgsource%\core-hdd0\%id_xmbmp% goto :error_source
 call "%bindir%\global_messages.bat" "BUILDING"
 for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasexmbmp%\APPTITLID\USRDIR\IMAGES\*.') DO (
-%external%\%packager% %pkgsource%\package-xmbmp.conf %pkgsource%\themepacks\%%Y\%id_xmbmp%
+%external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\themepacks\%%Y\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-THEMEPACK-%%Y.pkg
 )
 if not exist "%pkgoutput%" mkdir "%pkgoutput%"
