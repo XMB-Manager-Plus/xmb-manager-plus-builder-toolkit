@@ -42,13 +42,13 @@ if ["%suffix%"]==[""] goto :ask_suffix
 call "%bindir%\global_messages.bat" "BUILDING"
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\*.355"') DO (
 cd "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X.rco"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X"
 cd "%~dp0"
 move "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\core-hdd0-cfw\" >NUL
 )
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\*.341"') DO (
 cd "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X.rco"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X"
 cd "%~dp0"
 move "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\core-hdd0-cfw\" >NUL
 )
@@ -62,7 +62,7 @@ move "%pkgsource%\core-hdd0-cfw\%%X" "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDI
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-hdd0-cfw\*.341"') DO (
 move "%pkgsource%\core-hdd0-cfw\%%X" "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\" >NUL
 )
-del /Q /S "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\*.rco" >NUL
+del /Q /S "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q /S "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\*.BIN" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+%version%_%suffix%_Core_CFW.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL

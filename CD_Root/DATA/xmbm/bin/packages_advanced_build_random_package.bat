@@ -62,13 +62,13 @@ call "%bindir%\global_messages.bat" "BUILDING"
 if [%sourcesrc%]==[core-hdd0-cfw] (
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.355"') DO (
 cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
 cd "%~dp0"
 move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\" >NUL
 )
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.341"') DO (
 cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
 cd "%~dp0"
 move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\" >NUL
 )
@@ -82,7 +82,7 @@ move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\re
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.341"') DO (
 move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
-del /Q /S "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco" >NUL
+del /Q /S "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q /S "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 )
 if not [%sourcesrc%]==[core-hdd0-cfw] %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
