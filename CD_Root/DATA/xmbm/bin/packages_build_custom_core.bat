@@ -96,19 +96,22 @@ xcopy %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\USRDIR\*.* /e /y %pkgsource
 xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\IMAGES\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\IMAGES\ >NUL
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.355"') DO (
 cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
 move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\custom\" >NUL
 )
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.341"') DO (
 cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
 move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\custom\" >NUL
 )
+rename "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco" *.
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
 move "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\custom\%id_xmbmp%
+del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"
+del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NUL
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\*.355"') DO (
 move "%pkgsource%\custom\%%X" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\" >NUL
@@ -116,8 +119,6 @@ move "%pkgsource%\custom\%%X" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\" >
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\*.341"') DO (
 move "%pkgsource%\custom\%%X" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\" >NUL
 )
-del /Q /S "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"
-del /Q /S "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core_CFW-%langsrc%-%themesrc%.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
