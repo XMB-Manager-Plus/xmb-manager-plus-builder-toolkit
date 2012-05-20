@@ -111,8 +111,7 @@ rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:APPTITLID -r t:%id_xmbmp%
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT3.ELF.TMP -s t:"***** Package Manager 0.9 - Installer 1.1 ******" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT3.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -s t:"Package Manager 0.9" -r t:"XMB Manager Plus---"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT5.ELF.TMP -s h:2d2d2d -r h:000000
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT5.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"*************** Official Icon Set **************" -r t:"******************* Cobra CFW ******************"
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s h:2d2d2d -r h:000000
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
 if [%%A]==[hdd0-cfw] (
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_tv.* >NUL
@@ -120,7 +119,8 @@ del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_gam2.* >NUL
 )
 if [%%A]==[hdd0-cobra] (
 rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"category_game.xml" -r t:"category_gam2.xml"
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:"category_game.xml" -r t:"category_gam2.xml"
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"*************** Official Icon Set **************" -r t:"******************* Cobra CFW ******************"
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_tv.* >NUL
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game.* >NUL
