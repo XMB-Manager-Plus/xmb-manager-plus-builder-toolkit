@@ -38,9 +38,10 @@ if [%%A]==[hdd0-cfw] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manage
 if [%%A]==[hdd0-cobra] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_CobraFW.pkg >NUL
 if [%%A]==[hdd0-nfw] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_NFW.pkg >NUL
 )
+
 FOR %%A IN (usb000 usb001 usb006 hfw) DO (
-cd %pkgsource%\core-%%A
-%external%\zip.exe -9 -r %pkgoutput%\XMB_Manager_Plus_v%working_version%_Core_%%A.zip .
+cd "%pkgsource%\core-%%A"
+..\%external%\zip.exe -9 -r ..\%pkgoutput%\XMB_Manager_Plus_v%working_version%_Core_%%A.zip .
 cd "%~dp0"
 )
 
