@@ -13,19 +13,19 @@ Add Theme: Allows users to create to create new themes in the main base source
 
 Add Personal Area: Allows users to create their own Personal Area: Links, Folders and Packages in the main base source
 
-Edit Features: Allows editing XMBM+ features in the main base source by open features folder (\bin\base-sources\XMBMANPLS\USRDIR\FEATURES)
+Edit Features: Allows editing XMBM+ features in the main base source by open features folder (\bin\base-source\XMBMANPLS\USRDIR\FEATURES)
 
-Edit Languages: Allows editing XMBM+ languages in the main base source by open languages folder (\bin\base-sources\languages)
+Edit Languages: Allows editing XMBM+ languages in the main base source by open languages folder (\bin\base-source\languages)
 
-Edit Themes: Allows editing XMBM+ themes in the main base source by open themes folder (\bin\base-sources\XMBMANPLS\USRDIR\IMAGES)
+Edit Themes: Allows editing XMBM+ themes in the main base source by open themes folder (\bin\base-source\XMBMANPLS\USRDIR\IMAGES)
 
 Build Source: Builds the packages sources in order to build XMBM+ packages
 
 Restore Base: Restores the main base source to is original
 
-Open Base Folder: Opens the main base source folder (\bin\base-sources\XMBMANPLS\USRDIR)
+Open Base Folder: Opens the main base source folder (\bin\base-source\XMBMANPLS\USRDIR)
 
-Open Source Folder: Opens the packages sources folder (\sources)
+Open Source Folder: Opens the packages sources folder (\source)
 
 ### Build Packages
 
@@ -41,7 +41,7 @@ Build Core (Custom): Builds the core package from packages sources (with custom 
 
 Build Core (Beta): Builds a beta/RC core package from packages sources
 
-Open Source Folder: Opens the packages sources folder (\sources)
+Open Source Folder: Opens the packages sources folder (\source)
 
 Open Output Folder: Opens builded packages folder (\output)
 
@@ -51,11 +51,11 @@ Build Language: Detects available languages and let you select the one you want 
 
 Build Theme: Detects available themes and let you select the one you want build a package
 
-Edit Features: Will open base\XMBMANPLS\USRDIR\FEATURES directory to allow editing XMBM+ features in the main base source
+Edit Features: Will open bin\base-source\XMBMANPLS\USRDIR\FEATURES directory to allow editing XMBM+ features in the main base source
 
-Edit Languages: Will open base\languages directory to allow editing XMBM+ languages in the main base source
+Edit Languages: Will open bin\base-source\languages directory to allow editing XMBM+ languages in the main base source
 
-Edit Themes: Will open base\XMBMANPLS\USRDIR\IMAGES directory to allow editing content in the main base source
+Edit Themes: Will open bin\base-source\XMBMANPLS\USRDIR\IMAGES directory to allow editing content in the main base source
 
 Build Source: Will build the packages sources in order to build XMBM+ packages
 
@@ -85,15 +85,15 @@ Open Output Folder: Will open builded packages folder
 
 ### Advanced Build
 
-Build Language - This will detect available languages in base\languages\ directory and let you select the one you want build
+Build Language - This will detect available languages in base-source\languages\ directory and let you select the one you want build
 
-Build Theme - This detect available themes in base\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
+Build Theme - This detect available themes in base-source\XMBMANPLS\USRDIR\IMAGES\ directory and let you select the one you want build
 
 Build Custom Package: Scans and detects available packages sources and let you select the one you want build
 
 Manual Packager: Opens psn_package_npdrm or make_package_npdrm command line to allow custom packing
 
-Open Source Folder: Opens the packages sources folder (\sources)
+Open Source Folder: Opens the packages sources folder (\source)
 
 Open Output Folder: Opens builded packages folder (\output)
 
@@ -163,5 +163,4 @@ The entire source in available for download in the git
 
 -  Development page: http://www.ps3crunch.net/forum/threads/2431
 -  Git: https://github.com/XMB-Manager-Plus/xmb-manager-plus
--  Git (Flash): https://github.com/XMB-Manager-Plus/xmb-manager-plus-flash
 -  Git (Builder Toolkit): https://github.com/XMB-Manager-Plus/xmb-manager-plus-builder-toolkit
