@@ -4,9 +4,9 @@ for /f "tokens=1,2 delims==" %%G in (settings.ini) do set %%G=%%H
 call "%bindir%\global_prechecks.bat" %0
 
 :first
-if not exist %pkgsource%\core-hdd0\%id_xmbmp% goto :error_source
+if not exist %pkgsource%\core-hdd0-cfw\%id_xmbmp% goto :error_source
 if not exist %pkgoutput%\*.pkg goto :error_packages
-if not exist %dropboxdir%\Public\XMBMPLUS\INTERNAL_RELEASES goto :error_dropbox
+if not exist %dropboxdir%\Public\%id_xmbmp% goto :error_dropbox
 SETLOCAL ENABLEDELAYEDEXPANSION
 cls
 echo.
@@ -52,7 +52,7 @@ echo.
 %external%\cecho {04}        Û{08} ษออออออออออออออออออออออออออออออออออออออออออออออออป {04}Û{\n}
 %external%\cecho {08}        ออผ                                                ศออ{\n}
 set counter=0
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %dropboxdir%\Public\XMBMPLUS\INTERNAL_RELEASES\*.') DO (
+for /f "tokens=1,2 delims=" %%Y IN ('dir /b %dropboxdir%\Public\%id_xmbmp%\INTERNAL_RELEASES') DO (
 set /a counter += 1
 %external%\cecho {0F}             !counter!. %%Y {\n}
 )
@@ -64,7 +64,7 @@ echo.
 :ask_version
 set /p versionnum= Choose a version folder: 
 set counter=0
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %dropboxdir%\Public\XMBMPLUS\INTERNAL_RELEASES\*.') DO (
+for /f "tokens=1,2 delims=" %%Y IN ('dir /b %dropboxdir%\Public\%id_xmbmp%\INTERNAL_RELEASES') DO (
 set /a counter += 1
 if [!counter!]==[%versionnum%] (
 set versionsrc=%%Y
@@ -75,9 +75,9 @@ goto :ask_version
 
 :distribute
 call "%bindir%\global_messages.bat" "DISTRIBUTION"
-::mkdir "%dropboxdir%\Public\XMBMPLUS\INTERNAL_RELEASES\%versionsrc%"
-move "%pkgoutput%\%packagesrc%" "%dropboxdir%\Public\XMBMPLUS\INTERNAL_RELEASES\%versionsrc%\"
-if not exist "%dropboxdir%\Public\XMBMPLUS\INTERNAL_RELEASES\%versionsrc%\%packagesrc%" goto :error_distribution
+::mkdir "%dropboxdir%\Public\%id_xmbmp%\INTERNAL_RELEASES\%versionsrc%"
+xcopy /E /Y "%pkgoutput%\%packagesrc%" "%dropboxdir%\Public\%id_xmbmp%\INTERNAL_RELEASES\%versionsrc%\"
+if not exist "%dropboxdir%\Public\%id_xmbmp%\INTERNAL_RELEASES\%versionsrc%\%packagesrc%" goto :error_distribution
 
 :done
 call "%bindir%\global_messages.bat" "DISTRIBUTION-OK"

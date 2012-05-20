@@ -163,7 +163,7 @@ echo.
 %external%\cecho {04}  Û {08}º                                                                     {08}º{04} Û{\n}
 %external%\cecho {04}  Û {08}º   {0C}Don't forget{0F} to change the blank language flag in all themes in   {08}º{04} Û{\n}
 %external%\cecho {04}  Û {08}º                                                                     {08}º{04} Û{\n}
-%external%\cecho {04}  Û {08}º  {0F}bin\base\%id_xmbmp%\USRDIR\IMAGES\THEMENAME\languages\*langcode*.png{08}º{04} Û{\n}
+%external%\cecho {04}  Û {08}º  {0F}bin\base-sources\APPTITLID\USRDIR\IMAGES\THEMENAME\languages\*langcode*.png{08}º{04} Û{\n}
 %external%\cecho {04}  Û {08}º                                                                     {08}º {04}Û{\n}
 %external%\cecho {04}  Û {08}º  {0F}*langcode* = to the name that you entered in second process        {08}º {04}Û{\n}
 %external%\cecho {04}  Û {08}º  {0F}Exemple: en-US, fr-FR, es-ES, de-DE, pl-PL, pt-PT, etc....         {08}º {04}Û{\n}

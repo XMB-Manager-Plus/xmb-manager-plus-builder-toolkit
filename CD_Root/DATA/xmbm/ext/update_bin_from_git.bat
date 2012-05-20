@@ -40,16 +40,9 @@ rmdir /Q /S "%pkgbaseoriginalsources%"
 %external%\wget --no-check-certificate %git_base_page%/zipball/master -O xmbmp.zip
 %external%\unzip -o -qq xmbmp.zip -d "%TEMP%"
 move "%TEMP%\XMB-Manager-Plus*" "%TEMP%\xmbmp"
-move "%TEMP%\xmbmp" "%pkgbasexmbmp%"
-del /Q /S "%pkgbasexmbmp%\README*"
+move "%TEMP%\xmbmp" "%pkgbasesources%"
+del /Q /S "%pkgbasesources%\README*"
 del /Q /S xmbmp.zip
-
-%external%\wget --no-check-certificate %git_baseflash_page%/zipball/master -O xmbmpf.zip
-%external%\unzip -o -qq xmbmpf.zip -d "%TEMP%"
-move "%TEMP%\XMB-Manager-Plus*" "%TEMP%\xmbmpf"
-move "%TEMP%\xmbmpf" "%pkgbaseflash%"
-del /Q /S "%pkgbaseflash%\README*"
-del /Q /S xmbmpf.zip
 
 :end
 exit
