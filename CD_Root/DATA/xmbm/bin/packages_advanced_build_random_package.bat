@@ -83,6 +83,7 @@ for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.341"') D
 move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 del /Q /S "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco" >NUL
+del /Q /S "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 )
 if not [%sourcesrc%]==[core-hdd0-cfw] %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg %pkgname%.pkg >NUL

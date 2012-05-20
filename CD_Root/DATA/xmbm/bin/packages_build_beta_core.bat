@@ -63,6 +63,7 @@ for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-hdd0-cfw\*.341"')
 move "%pkgsource%\core-hdd0-cfw\%%X" "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 del /Q /S "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\*.rco" >NUL
+del /Q /S "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\*.BIN" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+%version%_%suffix%_Core_CFW.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
