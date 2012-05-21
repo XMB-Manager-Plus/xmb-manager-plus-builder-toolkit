@@ -39,7 +39,7 @@ for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\*.355"') DO (
 move "%pkgsource%\core-%%A\%%X" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\*.341"') DO (
-move "%pkgsource%\core-%%A\%%X" "%pkgsource%\core-hdd0-cfw\%id_xmbmp%\USRDIR\resource\" >NUL
+move "%pkgsource%\core-%%A\%%X" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 if [%%A]==[hdd0-cfw] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_CFW.pkg >NUL
 if [%%A]==[hdd0-cobra] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_CobraFW.pkg >NUL
