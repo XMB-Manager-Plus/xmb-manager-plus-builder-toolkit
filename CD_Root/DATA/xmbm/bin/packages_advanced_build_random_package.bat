@@ -75,7 +75,11 @@ move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%sour
 rename "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco" *.
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
 move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\%sourcesrc%\" >NUL
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\%sourcesrc%\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\%sourcesrc%\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\%sourcesrc%\%id_xmbmp%\PARAM.SFX" "%pkgsource%\%sourcesrc%\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
+move "%pkgsource%\%sourcesrc%\PARAM.SFX" "%pkgsource%\%sourcesrc%\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%sourcesrc%\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\" >NUL
@@ -86,7 +90,13 @@ for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.341"') D
 move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 )
-if not [%sourcesrc%]==[core-hdd0-cfw] %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
+if not [%sourcesrc%]==[core-hdd0-cfw] (
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\%sourcesrc%\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\%sourcesrc%\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\%sourcesrc%\%id_xmbmp%\PARAM.SFX" "%pkgsource%\%sourcesrc%\" >NUL
+%external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\%sourcesrc%\%id_xmbmp%
+move "%pkgsource%\%sourcesrc%\PARAM.SFX" "%pkgsource%\%sourcesrc%\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\*.SFO" >NUL
+)
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg %pkgname%.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move "%bindir%\*.pkg" "%pkgoutput%" >NUL

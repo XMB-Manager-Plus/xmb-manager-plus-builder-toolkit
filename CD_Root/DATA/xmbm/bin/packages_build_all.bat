@@ -23,9 +23,15 @@ cd "%~dp0"
 move "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\core-%%A\" >NUL
 )
 rename "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\*.rco" *.
+
+
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
 move "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\core-%%A\" >NUL
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\core-%%A\%id_xmbmp%\PARAM.SFX" "%pkgsource%\core-%%A\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\core-%%A\%id_xmbmp%
+move "%pkgsource%\core-%%A\PARAM.SFX" "%pkgsource%\core-%%A\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\core-%%A\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\core-%%A\EBOOT.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\" >NUL
@@ -46,11 +52,19 @@ cd "%~dp0"
 )
 
 for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\IMAGES\*.') DO (
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX" "%pkgsource%\themepacks\%%Y\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\themepacks\%%Y\%id_xmbmp%
+move "%pkgsource%\themepacks\%%Y\PARAM.SFX" "%pkgsource%\themepacks\%%Y\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.SFO" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-THEMEPACK-%%Y.pkg >NUL
 )
 for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX" "%pkgsource%\languagepacks\%%X\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\languagepacks\%%X\%id_xmbmp%
+move "%pkgsource%\languagepacks\%%X\PARAM.SFX" "%pkgsource%\languagepacks\%%X\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.SFO" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-LANGUAGEPACK-%%X.pkg >NUL
 )
 

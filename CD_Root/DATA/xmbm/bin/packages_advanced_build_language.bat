@@ -40,7 +40,11 @@ goto :ask_language
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\PARAM.SFX" "%pkgsource%\languagepacks\%langsrc%\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%
+move "%pkgsource%\languagepacks\%langsrc%\PARAM.SFX" "%pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\*.SFO" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-LANGUAGEPACK-%langsrc%.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%" >NUL

@@ -40,7 +40,11 @@ goto :ask_theme
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\themepacks\%themesrc%\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\themepacks\%themesrc%\%id_xmbmp%\PARAM.SFX" "%pkgsource%\themepacks\%themesrc%\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\themepacks\%themesrc%\%id_xmbmp%
+move "%pkgsource%\themepacks\%themesrc%\PARAM.SFX" "%pkgsource%\themepacks\%themesrc%\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\themepacks\%themesrc%\%id_xmbmp%\*.SFO" >NUL
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-THEMEPACK-%themesrc%.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move "%bindir%\*.pkg" "%pkgoutput%" >NUL

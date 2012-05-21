@@ -109,7 +109,11 @@ move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\custom\" >
 rename "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco" *.
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
 move "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\" >NUL
+%external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\custom\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\custom\%id_xmbmp%\PARAM.SFO
+move "%pkgsource%\custom\%id_xmbmp%\PARAM.SFX" "%pkgsource%\custom\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%.conf %pkgsource%\custom\%id_xmbmp%
+move "%pkgsource%\custom\PARAM.SFX" "%pkgsource%\custom\%id_xmbmp%\" >NUL
+del /Q "%pkgsource%\custom\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NUL
