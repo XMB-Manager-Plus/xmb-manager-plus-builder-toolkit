@@ -149,8 +149,8 @@ Shows information about this release and the team have make it
 -  bitsbubba (coding, themes)
 -  CloneD (themes, tester, videos)
 -  DeViL303 (coding, POC/WIP)
--  ps3Hen (coding, 4.00 port, translator, batch toolkit)
--  XiorgON (tester, translator, coding, GUI tookit)
+-  ps3Hen (coding, 4.00 port, translator, batch toolskit)
+-  XiorgON (tester, translator, coding, GUI toolskit)
 -  xlsound (images) -  wawryn (translator)
 
 ## Source/Development
