@@ -77,13 +77,13 @@ echo - Building beta %coresrc% installer package:
 echo - Compiling rco's ...
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.355"') DO (
 cd "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
 move "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%coresrc%\" >NUL
 )
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.341"') DO (
 cd "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
 move "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%coresrc%\" >NUL
 )
