@@ -40,6 +40,7 @@ goto :ask_language
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
+echo - Building language pack installer package ...
 %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\PARAM.SFO
 move "%pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\PARAM.SFX" "%pkgsource%\languagepacks\%langsrc%\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%

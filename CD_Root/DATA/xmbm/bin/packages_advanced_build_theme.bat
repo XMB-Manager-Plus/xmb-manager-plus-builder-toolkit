@@ -40,6 +40,7 @@ goto :ask_theme
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
+echo - Building theme pack installer package ...
 %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\themepacks\%themesrc%\%id_xmbmp%\PARAM.SFO
 move "%pkgsource%\themepacks\%themesrc%\%id_xmbmp%\PARAM.SFX" "%pkgsource%\themepacks\%themesrc%\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\themepacks\%themesrc%\%id_xmbmp%

@@ -6,6 +6,7 @@ call "%bindir%\global_prechecks.bat" %0
 :first
 if not exist %pkgsource%\core-hdd0-cfw\%id_xmbmp% goto :error_source
 call "%bindir%\global_messages.bat" "BUILDING"
+echo - Building language pack installer packages ...
 for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
 %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFO
 move "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX" "%pkgsource%\languagepacks\%%X\" >NUL
