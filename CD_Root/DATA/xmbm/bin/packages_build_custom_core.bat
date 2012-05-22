@@ -22,6 +22,40 @@ echo.
 set /p version= Choose a version (default %working_version%): 
 if ["%version%"]==[""] set version=%working_version%
 SETLOCAL ENABLEDELAYEDEXPANSION
+
+
+cls
+echo.
+echo.
+%external%\cecho {04}        ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ{\n}
+%external%\cecho {04}        Û                                                    Û{\n}
+%external%\cecho {04}        Û {0E}    What is the core you want?              {04}       Û{\n}
+%external%\cecho {04}        Û                                                    Û{\n}
+%external%\cecho {04}        ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ{\n}
+%external%\cecho {04}        Û{08} ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ» {04}Û{\n}
+%external%\cecho {08}        ÍÍ¼                                                ÈÍÍ{\n}
+set counter=0
+for /f "tokens=1,2 delims=." %%X IN ('dir /b %pkgsource%\core-hdd*.') DO (
+set /a counter += 1
+%external%\cecho {0F}            !counter!. %%X {\n}
+)
+%external%\cecho {08}        ÍÍ»                                                ÉÍÍ{\n}
+%external%\cecho {04}        Û {08}ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼ {04}Û{\n}
+%external%\cecho {04}        ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ{\n}
+%external%\cecho {0F}{\n}
+echo.
+:ask_core
+set /p corenum= Choose a core: 
+set counter=0
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\core-hdd*.') DO (
+set /a counter += 1
+if [!counter!]==[%corenum%] (
+set coresrc=%%X
+goto :languages
+)
+)
+
+:languages
 cls
 echo.
 echo.
@@ -91,7 +125,7 @@ goto :ask_theme
 call "%bindir%\global_messages.bat" "BUILDING"
 if exist "%pkgsource%\custom" rmdir /Q /S "%pkgsource%\custom"
 mkdir "%pkgsource%\custom\%id_xmbmp%" >NUL
-xcopy %pkgsource%\core-hdd0-cfw\%id_xmbmp%\*.* /e /y %pkgsource%\custom\%id_xmbmp%\ >NUL
+xcopy %pkgsource%\%coresrc%\%id_xmbmp%\*.* /e /y %pkgsource%\custom\%id_xmbmp%\ >NUL
 xcopy %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\USRDIR\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\ >NUL
 xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\IMAGES\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\IMAGES\ >NUL
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.355"') DO (

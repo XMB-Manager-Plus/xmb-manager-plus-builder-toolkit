@@ -59,7 +59,12 @@ if ["%pkgname%"]==[""] goto :ask_name
 
 :build
 call "%bindir%\global_messages.bat" "BUILDING"
-if [%sourcesrc%]==[core-hdd0-cfw] (
+
+if [%sourcesrc%]==[core-hdd0-cfw] set res=true
+if [%sourcesrc%]==[core-hdd0-cobra] set res=true
+if [%sourcesrc%]==[core-hdd0-nfw] set res=true
+
+if ["%res%"]==["true"] (
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.355"') DO (
 cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
 "%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
