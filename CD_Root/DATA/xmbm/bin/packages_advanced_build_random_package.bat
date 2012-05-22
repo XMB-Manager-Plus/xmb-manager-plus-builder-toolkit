@@ -62,7 +62,6 @@ call "%bindir%\global_messages.bat" "BUILDING"
 
 if [%sourcesrc%]==[core-hdd0-cfw] set res=true
 if [%sourcesrc%]==[core-hdd0-cobra] set res=true
-if [%sourcesrc%]==[core-hdd0-nfw] set res=true
 if ["%res%"]==["true"] (
 echo - Building %sourcesrc% installer package:
 echo - Compiling rco's ...

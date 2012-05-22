@@ -5,8 +5,8 @@ call "%bindir%\global_prechecks.bat" %0
 
 :first
 call "%bindir%\global_messages.bat" "BUILDING"
-if exist "%pkgsource%" rmdir /Q /S "%pkgsource%"
-if not exist "%pkgsource%" mkdir "%pkgsource%"
+if exist "%pkgsource%" rmdir /Q /S "%pkgsource%" >NUL
+if not exist "%pkgsource%" mkdir "%pkgsource%" >NUL
 move /Y "%pkgbasesources%\APPTITLID\USRDIR\resource" "%pkgbasesources%\" >NUL
 
 echo.
@@ -82,7 +82,7 @@ chcp %CodePage% >NUL
 echo.
 echo CREATING core source files ...
 echo.
-FOR %%A IN (hdd0-cfw hdd0-cobra hdd0-nfw usb000 usb001 usb006 hfw) DO (
+FOR %%A IN (hdd0-cfw hdd0-cobra usb000 usb001 usb006 hfw) DO (
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%" mkdir "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /E "%pkgbasesources%\APPTITLID\*.*" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
@@ -94,45 +94,34 @@ if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" mkdir "%pkgsource%\
 xcopy /E "%pkgsource%\themepacks\ORIGINAL\%id_xmbmp%\USRDIR\IMAGES" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES\" >NUL
 )
 
-FOR %%A IN (hdd0-cfw hdd0-cobra hdd0-nfw) DO (
+FOR %%A IN (hdd0-cfw hdd0-cobra) DO (
 echo - core %%A source files ...
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\PARAM-PATCH.SFX >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-PKGMANAGE.ELF >NUL
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search " DESCRIPTION" --replace ""
 %external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "game_settings.xml" --alter --search "Latest_version_XXX.html" --replace "Latest_version_%%A.html"
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
 xcopy /E "%pkgbasesources%\resource" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\" >NUL
-rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
+IF [%%A]==[hdd0-cfw] (
+rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-CFW.ELF EBOOT.ELF.TMP >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-COBRA.ELF >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_tv.* >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_gam2.* >NUL
+)
+IF [%%A]==[hdd0-cobra] (
+rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-COBRA.ELF EBOOT.ELF.TMP >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-CFW.ELF >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game_tool2.* >NUL
+del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game.* >NUL
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\*.341"') DO (
+rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" >NUL
+)
+)
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:APPTITLID -r t:%id_xmbmp%
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT3.ELF.TMP -s t:"***** Package Manager 0.9 - Installer 1.1 ******" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT3.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -s t:"Package Manager 0.9" -r t:"XMB Manager Plus---"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s h:2d2d2d -r h:000000
+%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"***** XMB Manager Plus 0.00 (Rebug PM 1.1) *****" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
-if [%%A]==[hdd0-cfw] (
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_tv.* >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_gam2.* >NUL
-)
-if [%%A]==[hdd0-cobra] (
-rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:"category_game.xml" -r t:"category_gam2.xml"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"*************** Official Icon Set **************" -r t:"******************* Cobra CFW ******************"
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_tv.* >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game.* >NUL
-)
-if [%%A]==[hdd0-nfw] (
-rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:"category_game.xml.new" -r t:"category_tv.xml.new--"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT3.ELF.TMP -s t:"category_game.xml.ori" -r t:"category_tv.xml.ori--"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT3.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -s t:"category_game.xml" -r t:"category_tv.xml--"
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT4.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT5.ELF.TMP -s h:2d2d -r h:0000
-%external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT5.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"*************** Official Icon Set **************" -r t:"**************** NFW  (cobraUSB) ***************"
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_gam2.* >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game.* >NUL
-)
-
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 )
 
