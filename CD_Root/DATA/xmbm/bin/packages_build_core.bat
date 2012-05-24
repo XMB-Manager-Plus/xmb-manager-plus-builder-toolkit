@@ -52,7 +52,6 @@ cd "%pkgsource%\core-%%A"
 ..\%external%\zip.exe -9 -r ..\%pkgoutput%\XMB_Manager_Plus_v%working_version%_Core_%%A.zip .
 cd "%~dp0"
 )
-
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
 call "%bindir%\global_messages.bat" "BUILD-OK"
 goto :end
