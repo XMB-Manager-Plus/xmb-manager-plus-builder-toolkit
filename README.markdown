@@ -137,13 +137,14 @@ Shows information about this release and the team have make it
 
 -  GUI: XiorgON
 -  Batch coding: andreus, ps3hen, XiorgON
+-  SFX/SFO editor/converter: aldostools
 -  Graphical design: Berion
 
 -  A Special Big Thanks to all the Team XMBM+ and the public because without you the project would never exist
 
 ## Team XMBM+
 
--  Aldostools (coding)
+-  aldostools (coding, SFX/SFO editor/converter)
 -  andreus (coding, translator)
 -  Berion (official logos)
 -  bitsbubba (coding, themes)
