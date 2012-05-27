@@ -8839,7 +8839,7 @@ From GitHub</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Enable/disable GUI Menu sound</ToolTip>
+<ToolTip>Change GUI Menu Theme</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
