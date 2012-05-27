@@ -1,9 +1,9 @@
 Autosave
 CD_Root/AutoPlay
-CD_Root/DATA/XMBM+BuilderToolkit.exe
-CD_Root/DATA/icon.ico
-CD_Root/DATA/lua5.1.dll
-CD_Root/DATA/lua51.dll
+CD_Root/XMBM+BuilderToolkit.exe
+CD_Root/icon.ico
+CD_Root/lua5.1.dll
+CD_Root/lua51.dll
 CD_Root/DATA/xmbm/bin/base-source
 CD_Root/DATA/xmbm/source
 CD_Root/DATA/xmbm/output
