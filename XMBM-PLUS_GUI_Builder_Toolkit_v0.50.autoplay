@@ -4,11 +4,11 @@
 <IRProductName>AutoPlay Media Studio 8</IRProductName>
 <ProductType>Commercial</ProductType>
 <DocInfo>
-<Title>XMBM+ BUILDER TOOLKIT</Title>
+<Title>XMBM+ Builder Toolkit</Title>
 <Author>XiorgON</Author>
 <Company/>
 <Copyright>XMBM+ TEAM 2012</Copyright>
-<URL>http://www.ps3crunch.net/forum/threads/2431-UPDATED-XMB-Integrated-File-Manager-Beta-v0-06c-(WIP-POC)</URL>
+<URL>http://www.ps3crunch.net/forum/threads/2431</URL>
 <Email/>
 <Comments/>
 <CreatedVersion>8.0.7.0 (Professional Edition)</CreatedVersion>
@@ -19,7 +19,7 @@
 <WindowStyles>
 <Width>400</Width>
 <Height>400</Height>
-<WindowTitle>XMBM+ Builder by PS3hen | GUI by XiorgON</WindowTitle>
+<WindowTitle>XMBM+ Builder Toolkit</WindowTitle>
 <WindowStyle>0</WindowStyle>
 <FillColor>0</FillColor>
 </WindowStyles>
@@ -640,7 +640,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -762,7 +762,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -886,7 +886,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -1010,7 +1010,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -1114,7 +1114,7 @@
 <Filename>DATA\Buttons\gray_4.btn</Filename>
 <Style>0</Style>
 <State>0</State>
-<Caption>About XMBM+ Toolkit Builder</Caption>
+<Caption>About XMBM+ Builder Toolkit</Caption>
 <Align>1</Align>
 <UpColor>0</UpColor>
 <HighlightColor>16777215</HighlightColor>
@@ -1134,7 +1134,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -1258,7 +1258,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -1763,7 +1763,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -1889,7 +1889,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2015,7 +2015,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2141,7 +2141,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2267,7 +2267,7 @@
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2394,7 +2394,7 @@ Source Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2521,7 +2521,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2645,7 +2645,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -2772,7 +2772,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -3011,7 +3011,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -3406,7 +3406,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -3532,7 +3532,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -3659,7 +3659,7 @@ Package</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -3785,7 +3785,7 @@ Package</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -3910,7 +3910,7 @@ Build Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -4146,7 +4146,7 @@ Build Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -4273,7 +4273,7 @@ Source Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -4400,7 +4400,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -4793,7 +4793,7 @@ Output Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -4920,7 +4920,7 @@ All Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -5047,7 +5047,7 @@ Languages Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -5174,7 +5174,7 @@ Themes Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -5300,7 +5300,7 @@ Themes Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -5427,7 +5427,7 @@ Core Packages</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -5521,7 +5521,7 @@ Core Packages</Caption>
 <File>DATA\\xmbm\\bin\\distribution_open_dropbox_folder.bat</File>
 <Args/>
 <WorkingDir>DATA\\xmbm\\bin</WorkingDir>
-<RunMode>1</RunMode>
+<RunMode>0</RunMode>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
@@ -5554,7 +5554,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -5792,7 +5792,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6185,7 +6185,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6311,7 +6311,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6437,7 +6437,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6563,7 +6563,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6689,7 +6689,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6815,7 +6815,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -6941,7 +6941,7 @@ Dropbox Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -7068,7 +7068,7 @@ Source Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -7195,7 +7195,7 @@ Base Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -7433,7 +7433,7 @@ Base Folder</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -7560,7 +7560,7 @@ Personal Area</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -7953,7 +7953,7 @@ Personal Area</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -8047,7 +8047,7 @@ Personal Area</Caption>
 <File>DATA\\dat01\\toggle.bat</File>
 <Args/>
 <WorkingDir>DATA\\dat01</WorkingDir>
-<RunMode>1</RunMode>
+<RunMode>0</RunMode>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
@@ -8079,7 +8079,7 @@ Personal Area</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -8206,7 +8206,7 @@ Dropbox Path</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -8333,7 +8333,7 @@ PKG Compiler</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -8460,7 +8460,7 @@ Working Version</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -8699,7 +8699,7 @@ Settings</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -8826,7 +8826,7 @@ From GitHub</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -9116,10 +9116,10 @@ From GitHub</Caption>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>312</Top>
-<Bottom>339</Bottom>
-<Left>20</Left>
-<Right>381</Right>
+<Top>290</Top>
+<Bottom>341</Bottom>
+<Left>80</Left>
+<Right>321</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -9186,7 +9186,7 @@ From GitHub</Caption>
 <Type>6</Type>
 <Name>View Website</Name>
 <Exit>0</Exit>
-<Website>http://www.ps3crunch.net/forum/threads/2431-UPDATED-XMB-Integrated-File-Manager-Beta-v0-06c-(WIP-POC)</Website>
+<Website>http://www.ps3crunch.net/forum/threads/2431</Website>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
@@ -9218,7 +9218,7 @@ From GitHub</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -9342,7 +9342,7 @@ From GitHub</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
@@ -9467,7 +9467,7 @@ From GitHub</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Open XMBM+ GitHub thread</ToolTip>
+<ToolTip>Open XMBM+ Builder Toolkit Git (source)</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -9475,10 +9475,10 @@ From GitHub</Caption>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>344</Top>
-<Bottom>371</Bottom>
-<Left>20</Left>
-<Right>381</Right>
+<Top>190</Top>
+<Bottom>241</Bottom>
+<Left>220</Left>
+<Right>371</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -9545,7 +9545,7 @@ From GitHub</Caption>
 <Type>6</Type>
 <Name>View Website</Name>
 <Exit>0</Exit>
-<Website>https://github.com/xmb-manager-plus</Website>
+<Website>https://github.com/XMB-Manager-Plus/xmb-manager-plus-builder-toolkit</Website>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
@@ -9557,7 +9557,8 @@ From GitHub</Caption>
 <Filename>DATA\Buttons\gray_4.btn</Filename>
 <Style>0</Style>
 <State>0</State>
-<Caption>XMBM+ GitHub thread</Caption>
+<Caption>XMBM+ Builder Toolkit
+Git (source)</Caption>
 <Align>1</Align>
 <UpColor>0</UpColor>
 <HighlightColor>16777215</HighlightColor>
@@ -9577,72 +9578,11 @@ From GitHub</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
 </BUTTON>
-</Object>
-<Object>
-<Type>6</Type>
-<Name>Web1</Name>
-<VisibleAtDesignTime>1</VisibleAtDesignTime>
-<VisibleAtRunTime>1</VisibleAtRunTime>
-<Locked>0</Locked>
-<Enabled>1</Enabled>
-<ToolTip/>
-<Cursor>0</Cursor>
-<Group>0</Group>
-<MaintainAspectRatio>0</MaintainAspectRatio>
-<Pin>0</Pin>
-<TabIndex>-1</TabIndex>
-<AutoResize>0</AutoResize>
-<Coordinates>
-<Top>93</Top>
-<Bottom>278</Bottom>
-<Left>16</Left>
-<Right>388</Right>
-</Coordinates>
-<Ratios>
-<WidthRatio>-1.000000</WidthRatio>
-<HeightRatio>-1.000000</HeightRatio>
-</Ratios>
-<Event>
-<Name>On Navigate</Name>
-<Args>string e_URL</Args>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>147701568</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Event>
-<Name>On Loaded</Name>
-<Args>string e_URL</Args>
-<Script/>
-<TreeStates>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-<TreeState>0</TreeState>
-</TreeStates>
-<DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>2573</DesignCodeCol>
-<BookMarks count="0">
-</BookMarks>
-</Event>
-<Actions/>
-<WEB_BROWSER>
-<InitialPage>https://raw.github.com/XMB-Manager-Plus/xmb-manager-plus-builder-toolkit/master/README.markdown</InitialPage>
-<AltMode>1</AltMode>
-<AltImage/>
-<ShowBorder>1</ShowBorder>
-<ShowScrollbars>1</ShowScrollbars>
-</WEB_BROWSER>
 </Object>
 <Object>
 <Type>0</Type>
@@ -9651,7 +9591,7 @@ From GitHub</Caption>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip>Open XMBM+ development thread on PS3 Crunch</ToolTip>
+<ToolTip>Open XMBM+ Builder Toolkit release notes</ToolTip>
 <Cursor>1</Cursor>
 <Group>0</Group>
 <MaintainAspectRatio>0</MaintainAspectRatio>
@@ -9659,10 +9599,10 @@ From GitHub</Caption>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>280</Top>
-<Bottom>307</Bottom>
-<Left>20</Left>
-<Right>381</Right>
+<Top>120</Top>
+<Bottom>171</Bottom>
+<Left>220</Left>
+<Right>371</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -9741,7 +9681,8 @@ From GitHub</Caption>
 <Filename>DATA\Buttons\gray_4.btn</Filename>
 <Style>0</Style>
 <State>0</State>
-<Caption>Change log in full frame</Caption>
+<Caption>XMBM+ Builder Toolkit
+release notes</Caption>
 <Align>1</Align>
 <UpColor>0</UpColor>
 <HighlightColor>16777215</HighlightColor>
@@ -9761,31 +9702,31 @@ From GitHub</Caption>
 <CapYOff>0</CapYOff>
 <LeftMargin>0</LeftMargin>
 <RightMargin>0</RightMargin>
-<MouseOverSndMode>1</MouseOverSndMode>
+<MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
 <MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
 </BUTTON>
 </Object>
 <Object>
-<Type>1</Type>
-<Name>Label2</Name>
+<Type>0</Type>
+<Name>Button4</Name>
 <VisibleAtDesignTime>1</VisibleAtDesignTime>
 <VisibleAtRunTime>1</VisibleAtRunTime>
 <Locked>0</Locked>
 <Enabled>1</Enabled>
-<ToolTip/>
-<Cursor>0</Cursor>
+<ToolTip>Open XMBM+ Git (source)</ToolTip>
+<Cursor>1</Cursor>
 <Group>0</Group>
-<MaintainAspectRatio>1</MaintainAspectRatio>
+<MaintainAspectRatio>0</MaintainAspectRatio>
 <Pin>0</Pin>
 <TabIndex>-1</TabIndex>
 <AutoResize>0</AutoResize>
 <Coordinates>
-<Top>72</Top>
-<Bottom>98</Bottom>
-<Left>19</Left>
-<Right>119</Right>
+<Top>190</Top>
+<Bottom>241</Bottom>
+<Left>30</Left>
+<Right>181</Right>
 </Coordinates>
 <Ratios>
 <WidthRatio>-1.000000</WidthRatio>
@@ -9800,8 +9741,8 @@ From GitHub</Caption>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
 </TreeStates>
-<DesignCodeLine>1040189965</DesignCodeLine>
-<DesignCodeCol>1090521613</DesignCodeCol>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>147700416</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9815,7 +9756,7 @@ From GitHub</Caption>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>1081186304</DesignCodeCol>
+<DesignCodeCol>1563387136</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9829,7 +9770,7 @@ From GitHub</Caption>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>1563387136</DesignCodeCol>
+<DesignCodeCol>147701568</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
@@ -9843,41 +9784,177 @@ From GitHub</Caption>
 <TreeState>0</TreeState>
 </TreeStates>
 <DesignCodeLine>0</DesignCodeLine>
-<DesignCodeCol>148658368</DesignCodeCol>
+<DesignCodeCol>-1674681218</DesignCodeCol>
 <BookMarks count="0">
 </BookMarks>
 </Event>
-<Actions/>
-<Text>
-<Body>Changelog</Body>
-<NormalColor>0</NormalColor>
-<HighlightColor>0</HighlightColor>
-<MouseDownColor>0</MouseDownColor>
-<DisabledColor>0</DisabledColor>
+<Actions>
+<Action>
+<Type>6</Type>
+<Name>View Website</Name>
+<Exit>0</Exit>
+<Website>https://github.com/XMB-Manager-Plus/xmb-manager-plus</Website>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+</Action>
+</Actions>
+<BUTTON>
+<Filename>DATA\Buttons\gray_4.btn</Filename>
+<Style>0</Style>
+<State>0</State>
+<Caption>XMBM+
+Git (source)</Caption>
+<Align>1</Align>
+<UpColor>0</UpColor>
+<HighlightColor>16777215</HighlightColor>
+<DownColor>128</DownColor>
+<DisabledColor>16777215</DisabledColor>
 <FontData>
-<FontName>Stencil Std</FontName>
+<FontName>Verdana</FontName>
 <CharacterSet>0</CharacterSet>
-<Height>-15</Height>
+<Height>-12</Height>
 <Weight>700</Weight>
 <Italic>0</Italic>
 <Underline>0</Underline>
 <StrikeOut>0</StrikeOut>
 <AntiAlias>1</AntiAlias>
 </FontData>
-<Alignment>0</Alignment>
-<Orientation>0</Orientation>
-<AutoSize>1</AutoSize>
+<CapXOff>0</CapXOff>
+<CapYOff>0</CapYOff>
+<LeftMargin>0</LeftMargin>
+<RightMargin>0</RightMargin>
 <MouseOverSndMode>0</MouseOverSndMode>
 <MouseOverSound/>
-<MouseClickSndMode>0</MouseClickSndMode>
+<MouseClickSndMode>1</MouseClickSndMode>
 <MouseClickSound/>
-<OriginalRect>
-<Top>72</Top>
-<Bottom>98</Bottom>
-<Left>19</Left>
-<Right>119</Right>
-</OriginalRect>
-</Text>
+</BUTTON>
+</Object>
+<Object>
+<Type>0</Type>
+<Name>Button6</Name>
+<VisibleAtDesignTime>1</VisibleAtDesignTime>
+<VisibleAtRunTime>1</VisibleAtRunTime>
+<Locked>0</Locked>
+<Enabled>1</Enabled>
+<ToolTip>Open XMBM+ release notes</ToolTip>
+<Cursor>1</Cursor>
+<Group>0</Group>
+<MaintainAspectRatio>0</MaintainAspectRatio>
+<Pin>0</Pin>
+<TabIndex>-1</TabIndex>
+<AutoResize>0</AutoResize>
+<Coordinates>
+<Top>120</Top>
+<Bottom>171</Bottom>
+<Left>30</Left>
+<Right>181</Right>
+</Coordinates>
+<Ratios>
+<WidthRatio>-1.000000</WidthRatio>
+<HeightRatio>-1.000000</HeightRatio>
+</Ratios>
+<Event>
+<Name>On Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>147700416</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Right-Click</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>1563387136</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Enter</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>147701568</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Event>
+<Name>On Leave</Name>
+<Args/>
+<Script/>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+<DesignCodeLine>0</DesignCodeLine>
+<DesignCodeCol>-1674681218</DesignCodeCol>
+<BookMarks count="0">
+</BookMarks>
+</Event>
+<Actions>
+<Action>
+<Type>6</Type>
+<Name>View Website</Name>
+<Exit>0</Exit>
+<Website>https://raw.github.com/XMB-Manager-Plus/xmb-manager-plus/master/README.markdown</Website>
+<TreeStates>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+<TreeState>0</TreeState>
+</TreeStates>
+</Action>
+</Actions>
+<BUTTON>
+<Filename>DATA\Buttons\gray_4.btn</Filename>
+<Style>0</Style>
+<State>0</State>
+<Caption>XMBM+
+release notes</Caption>
+<Align>1</Align>
+<UpColor>0</UpColor>
+<HighlightColor>16777215</HighlightColor>
+<DownColor>128</DownColor>
+<DisabledColor>16777215</DisabledColor>
+<FontData>
+<FontName>Verdana</FontName>
+<CharacterSet>0</CharacterSet>
+<Height>-12</Height>
+<Weight>700</Weight>
+<Italic>0</Italic>
+<Underline>0</Underline>
+<StrikeOut>0</StrikeOut>
+<AntiAlias>1</AntiAlias>
+</FontData>
+<CapXOff>0</CapXOff>
+<CapYOff>0</CapYOff>
+<LeftMargin>0</LeftMargin>
+<RightMargin>0</RightMargin>
+<MouseOverSndMode>0</MouseOverSndMode>
+<MouseOverSound/>
+<MouseClickSndMode>1</MouseClickSndMode>
+<MouseClickSound/>
+</BUTTON>
 </Object>
 <HGuidelines/>
 <VGuidelines/>
@@ -9895,7 +9972,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <HelpURL>http://www.yourdomain.com/help.htm</HelpURL>
 </MissingTechs>
 <ProgramPrefs>
-<OutputFolder></OutputFolder>
+<OutputFolder/>
 <EXEName>XMBM+BuilderToolkit.exe</EXEName>
 <EnableAutoPlayFeatureBTF>0</EnableAutoPlayFeatureBTF>
 <EnableAutoPlayFeatureCDRW>1</EnableAutoPlayFeatureCDRW>
@@ -9905,7 +9982,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <TimeStampFilesCDRW>0</TimeStampFilesCDRW>
 <TimeStampFilesISO>0</TimeStampFilesISO>
 <ISOImageFile/>
-<SelfExtractingZIPfile></SelfExtractingZIPfile>
+<SelfExtractingZIPfile/>
 <ZIPMessage>Loading</ZIPMessage>
 <ZIPShowProgress>1</ZIPShowProgress>
 <CDVolumeIdentifier>NEWDISC</CDVolumeIdentifier>
