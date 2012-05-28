@@ -8047,7 +8047,7 @@ Personal Area</Caption>
 <File>DATA\\dat01\\toggle.bat</File>
 <Args/>
 <WorkingDir>DATA\\dat01</WorkingDir>
-<RunMode>0</RunMode>
+<RunMode>1</RunMode>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
@@ -8920,7 +8920,7 @@ From GitHub</Caption>
 <File>DATA\\dat01\\changetheme.bat</File>
 <Args/>
 <WorkingDir>DATA\\dat01</WorkingDir>
-<RunMode>0</RunMode>
+<RunMode>1</RunMode>
 <TreeStates>
 <TreeState>0</TreeState>
 <TreeState>0</TreeState>
