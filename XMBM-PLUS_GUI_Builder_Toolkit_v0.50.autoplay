@@ -10099,7 +10099,7 @@ Please double-click on each item to find out how to install it.</DlgMsg>
 <HelpURL>http://www.yourdomain.com/help.htm</HelpURL>
 </MissingTechs>
 <ProgramPrefs>
-<OutputFolder/>
+<OutputFolder>E:\Windows 7\Bureau\Nouveau dossier</OutputFolder>
 <EXEName>XMBM+BuilderToolkit.exe</EXEName>
 <EnableAutoPlayFeatureBTF>0</EnableAutoPlayFeatureBTF>
 <EnableAutoPlayFeatureCDRW>1</EnableAutoPlayFeatureCDRW>
