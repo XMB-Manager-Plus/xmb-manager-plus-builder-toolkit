@@ -108,7 +108,7 @@ move "%pkgsource%\%coresrc%\%%X" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resour
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\*.341"') DO (
 move "%pkgsource%\%coresrc%\%%X" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
-rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+%version%_%suffix%_Core_CFW.pkg >NUL
+rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_%version%_%suffix%_Core_CFW.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
 

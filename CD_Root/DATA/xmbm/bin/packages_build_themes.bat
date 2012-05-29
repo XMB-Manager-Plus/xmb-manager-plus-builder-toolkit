@@ -13,7 +13,7 @@ move "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX" "%pkgsource%\themepacks\%
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\themepacks\%%Y\%id_xmbmp%
 move "%pkgsource%\themepacks\%%Y\PARAM.SFX" "%pkgsource%\themepacks\%%Y\%id_xmbmp%\" >NUL
 del /Q "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.SFO" >NUL
-rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-THEMEPACK-%%Y.pkg >NUL
+rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%-THEMEPACK-%%Y.pkg >NUL
 )
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL

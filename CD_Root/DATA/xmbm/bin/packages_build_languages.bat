@@ -13,7 +13,7 @@ move "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX" "%pkgsource%\languagep
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\languagepacks\%%X\%id_xmbmp%
 move "%pkgsource%\languagepacks\%%X\PARAM.SFX" "%pkgsource%\languagepacks\%%X\%id_xmbmp%\" >NUL
 del /Q "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.SFO" >NUL
-rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMBM+v%working_version%-LANGUAGEPACK-%%X.pkg >NUL
+rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%-LANGUAGEPACK-%%X.pkg >NUL
 )
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
