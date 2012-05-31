@@ -41,7 +41,7 @@ echo.
 %external%\cecho {04}        л                                                    л{\n}
 %external%\cecho {04}        лллллллллллллллллллллллллллллллллллллллллллллллллллллл{\n}
 %external%\cecho {0F}{\n}
-wait 2
+%external%\wait 2
 goto :first
 
 :edit_personal_area
@@ -76,7 +76,7 @@ echo.
 %external%\cecho {04}        л                                                    л{\n}
 %external%\cecho {04}        лллллллллллллллллллллллллллллллллллллллллллллллллллллл{\n}
 %external%\cecho {0F}{\n}
-wait 2
+%external%\wait 2
 goto :first
 
 ::
