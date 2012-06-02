@@ -142,17 +142,36 @@ Shows information about this release and the team have make it
 
 -  A Special Big Thanks to all the Team XMBM+ and the public because without you the project would never exist
 
-## Team XMBM+
+## Credits
+
+### XMBM+
 
 -  aldostools (coding, SFX/SFO editor/converter)
 -  andreus (coding, translator)
--  Berion (official logos)
+-  Berion (graphical design)
 -  bitsbubba (coding, themes)
 -  CloneD (themes, tester, videos)
 -  DeViL303 (coding, POC/WIP)
--  ps3Hen (coding, 4.00 port, translator, batch toolskit)
--  XiorgON (tester, translator, coding, GUI toolskit)
--  xlsound (images) -  wawryn (translator)
+-  dragoangel (translator, themes)
+-  ps3Hen (coding, 4.00 port, translator)
+-  XiorgON (tester, translator, coding)
+-  xlsound (images)
+-  wawryn (translator)
+
+### XMBM+ Builder Toolkit
+
+-  GUI: XiorgON
+-  Batch coding: andreus, ps3hen, XiorgON
+-  SFX/SFO editor/converter: aldostools
+-  Graphical design: Berion
+
+### Special thanks
+
+- rebug team for the package manager installer
+- sandungas for the ps3devwiki and all is help
+- all xmbm+ toolkit tools developers
+- all the testers and bug reporters
+- and of course the users
 
 ## Source/Development
 
