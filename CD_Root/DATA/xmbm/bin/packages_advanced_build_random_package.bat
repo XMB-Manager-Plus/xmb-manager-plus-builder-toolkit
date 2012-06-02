@@ -71,12 +71,6 @@ cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
 cd "%~dp0"
 move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\" >NUL
 )
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.341"') DO (
-cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
-cd "%~dp0"
-move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\" >NUL
-)
 rename "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco" *.
 echo - Compiling elf ...
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
@@ -93,9 +87,6 @@ del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%sourcesrc%\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\" >NUL
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.355"') DO (
-move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
-)
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.341"') DO (
 move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 )

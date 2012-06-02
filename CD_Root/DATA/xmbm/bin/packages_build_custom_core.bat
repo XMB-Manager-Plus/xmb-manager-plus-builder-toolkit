@@ -134,12 +134,6 @@ cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X"
 cd "%~dp0"
 move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\custom\" >NUL
 )
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.341"') DO (
-cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X.rco"
-cd "%~dp0"
-move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\custom\" >NUL
-)
 rename "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco" *.
 echo - Compiling elf ...
 %external%\make_self\make_self_npdrm.exe "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
@@ -156,9 +150,6 @@ del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NUL
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\*.355"') DO (
-move "%pkgsource%\custom\%%X" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\" >NUL
-)
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\*.341"') DO (
 move "%pkgsource%\custom\%%X" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core_CFW-%langsrc%-%themesrc%.pkg >NUL
