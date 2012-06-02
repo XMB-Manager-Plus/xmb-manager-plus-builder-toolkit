@@ -19,6 +19,7 @@ for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
 echo - %%X language pack source files ...
 if not exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%" mkdir "%pkgsource%\languagepacks\%%X\%id_xmbmp%"
 xcopy /E "%pkgbasesources%\APPTITLID\*.*" "%pkgsource%\languagepacks\%%X\%id_xmbmp%" >NUL
+if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PIC1.PNG" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PIC1.PNG" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\*.ELF" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\*.ELF" >NUL
 if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" >NUL
@@ -58,6 +59,7 @@ for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\I
 echo - %%Y theme pack source files ...
 if not exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%" mkdir "%pkgsource%\themepacks\%%Y\%id_xmbmp%"
 xcopy /E "%pkgbasesources%\APPTITLID\*.*" "%pkgsource%\themepacks\%%Y\%id_xmbmp%" >NUL
+if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PIC1.PNG" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PIC1.PNG" >NUL
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" >NUL
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.ELF" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.ELF" >NUL
 if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" >NUL
@@ -132,7 +134,7 @@ del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
 FOR %%A IN (usb000 usb001 usb006 hfw) DO (
 echo - core %%A source files ...
 if exist "%pkgsource%\core-%%A\%id_xmbmp%\*.SFX" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\*.SFX" >NUL
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\ICON0.PNG" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\ICON0.PNG" >NUL
+if exist "%pkgsource%\core-%%A\%id_xmbmp%\*.PNG" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\*.PNG" >NUL
 if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.ELF" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.ELF" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug" >NUL
