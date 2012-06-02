@@ -118,6 +118,9 @@ rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-COBRA.ELF EBOOT.ELF.TMP >NUL
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-CFW.ELF >NUL
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game_tool2.* >NUL
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game.* >NUL
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\*.rbg.355"') DO (
+rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" >NUL
+)
 )
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:APPTITLID -r t:%id_xmbmp%
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"***** XMB Manager Plus 0.00 (Rebug PM 1.1) *****" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
