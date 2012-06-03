@@ -245,7 +245,7 @@ if ["%linkurl%"]==[""] goto :ask_linkurl
 :: Generate random ID
 set /a ID=%random%*10000/32767+1
 :: Make changes
-%bindir%\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR\FEATURES" --include "Personal_Area.xml" --alter --search "<!-- Links attributes -->" --replace "<!-- Links attributes -->/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Table key=''l%ID%''><Pair key=''icon''><String>/dev_hdd0/game/APPTITLID/USRDIR/IMAGES/network.png</String></Pair><Pair key=''title''><String>%linktitle%</String></Pair><Pair key=''info''><String>%linkinfo%</String></Pair><Pair key=''module_name''><String>webbrowser_plugin</String></Pair><Pair key=''module_action''><String>%linkurl%</String></Pair></Table>"
+%bindir%\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR\FEATURES" --include "Personal_Area.xml" --alter --search "<!-- Links attributes -->" --replace "<!-- Links attributes -->/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Table key=''l%ID%''><Pair key=''icon''><String>/dev_hdd0/game/APPTITLID/USRDIR/IMAGES/www.png</String></Pair><Pair key=''title''><String>%linktitle%</String></Pair><Pair key=''info''><String>%linkinfo%</String></Pair><Pair key=''module_name''><String>webbrowser_plugin</String></Pair><Pair key=''module_action''><String>%linkurl%</String></Pair></Table>"
 %bindir%\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR\FEATURES" --include "Personal_Area.xml" --alter --search "<!-- Links items -->" --replace "<!-- Links items -->/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Item class=''type:x-xmb/module-action'' key=''l%ID%'' attr=''l%ID%''/>"
 call "%bindir%\global_messages.bat" "SOURCE-PERSONALAREA-LINK-ADDED"
 
