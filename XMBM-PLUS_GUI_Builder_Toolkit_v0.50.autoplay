@@ -5772,7 +5772,7 @@ Dropbox Folder</Caption>
 <Filename>DATA\Buttons\gray_4.btn</Filename>
 <Style>0</Style>
 <State>0</State>
-<Caption>Sincronize Sources</Caption>
+<Caption>Synchronize Sources</Caption>
 <Align>1</Align>
 <UpColor>0</UpColor>
 <HighlightColor>16777215</HighlightColor>
