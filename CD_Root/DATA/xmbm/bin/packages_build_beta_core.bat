@@ -75,7 +75,7 @@ if ["%suffix%"]==[""] goto :ask_suffix
 call "%bindir%\global_messages.bat" "BUILDING"
 echo - Building beta %coresrc% installer package:
 echo - Compiling rco's ...
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.355"') DO (
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.rco.*"') DO (
 cd "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X"
 "%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
@@ -96,7 +96,7 @@ del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%coresrc%\EBOOT.ELF" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\" >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\*.355"') DO (
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\*.rco.*"') DO (
 move "%pkgsource%\%coresrc%\%%X" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_%version%_%suffix%_Core_CFW.pkg >NUL

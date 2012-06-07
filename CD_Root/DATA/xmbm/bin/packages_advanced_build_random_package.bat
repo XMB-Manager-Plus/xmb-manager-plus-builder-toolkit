@@ -61,11 +61,12 @@ if ["%pkgname%"]==[""] goto :ask_name
 call "%bindir%\global_messages.bat" "BUILDING"
 
 if [%sourcesrc%]==[core-hdd0-cfw] set res=true
+if [%sourcesrc%]==[core-hdd0-cfw-full] set res=true
 if [%sourcesrc%]==[core-hdd0-cobra] set res=true
 if ["%res%"]==["true"] (
 echo - Building %sourcesrc% installer package:
 echo - Compiling rco's ...
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.355"') DO (
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*"') DO (
 cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
 "%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
 cd "%~dp0"
@@ -86,7 +87,7 @@ del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%sourcesrc%\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\" >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.355"') DO (
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.rco.*"') DO (
 move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
 )
 )

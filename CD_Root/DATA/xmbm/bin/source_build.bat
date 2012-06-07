@@ -7,7 +7,6 @@ call "%bindir%\global_prechecks.bat" %0
 call "%bindir%\global_messages.bat" "BUILDING"
 if exist "%pkgsource%" rmdir /Q /S "%pkgsource%" >NUL
 if not exist "%pkgsource%" mkdir "%pkgsource%" >NUL
-move /Y "%pkgbasesources%\APPTITLID\USRDIR\resource" "%pkgbasesources%\" >NUL
 
 echo.
 echo CREATING language packs source files ...
@@ -17,15 +16,11 @@ chcp 65001 >NUL
 if exist "%pkgsource%\languagepacks" rmdir /Q /S "%pkgsource%\languagepacks"
 for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
 echo - %%X language pack source files ...
-if not exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%" mkdir "%pkgsource%\languagepacks\%%X\%id_xmbmp%"
-xcopy /E "%pkgbasesources%\APPTITLID\*.*" "%pkgsource%\languagepacks\%%X\%id_xmbmp%" >NUL
-if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PIC1.PNG" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PIC1.PNG" >NUL
-if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\*.pkg" >NUL
-if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\*.ELF" del /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\*.ELF" >NUL
-if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\IMAGES" >NUL
-if exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" rmdir /Q /S "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\THEMES" >NUL
-del /Q /S %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX >NUL
-rename %pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM-PATCH.SFX PARAM.SFX >NUL
+if not exist "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\FEATURES" mkdir "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\FEATURES"
+xcopy /Y "%pkgbasesources%\APPTITLID\ICON0.PNG" "%pkgsource%\languagepacks\%%X\%id_xmbmp%" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\*.xml" "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\FEATURES\*.xml" "%pkgsource%\languagepacks\%%X\%id_xmbmp%\USRDIR\FEATURES" >NUL
+copy /Y "%pkgbasesources%\APPTITLID\PARAM-PATCH.SFX" "%pkgsource%\languagepacks\%%X\%id_xmbmp%\PARAM.SFX" >NUL
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\languagepacks\%%X\%id_xmbmp%" --include "PARAM.SFX" --alter --search "DESCRIPTION" --replace "Language Pack (%%X)"
@@ -59,22 +54,13 @@ echo.
 if exist "%pkgsource%\themepacks" rmdir /Q /S "%pkgsource%\themepacks"
 for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\IMAGES\*.') DO (
 echo - %%Y theme pack source files ...
-if not exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%" mkdir "%pkgsource%\themepacks\%%Y\%id_xmbmp%"
-xcopy /E "%pkgbasesources%\APPTITLID\*.*" "%pkgsource%\themepacks\%%Y\%id_xmbmp%" >NUL
-if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PIC1.PNG" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PIC1.PNG" >NUL
-if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\*.pkg" >NUL
-if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.ELF" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.ELF" >NUL
-if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\*.xml" >NUL
-if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\FEATURES" >NUL
-del /Q /S %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX >NUL
-rename %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM-PATCH.SFX PARAM.SFX >NUL
+if not exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES" mkdir "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES"
+xcopy /Y "%pkgbasesources%\APPTITLID\ICON0.PNG" "%pkgsource%\themepacks\%%Y\%id_xmbmp%" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%%Y\*.*" "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES" >NUL
+copy /Y "%pkgbasesources%\APPTITLID\PARAM-PATCH.SFX" "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX" >NUL
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%" --include "PARAM.SFX" --alter --search "DESCRIPTION" --replace "Theme Pack (%%Y)"
-move /Y "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES\%%Y" "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\" >NUL
-if exist "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES" >NUL
-rename %pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\%%Y IMAGES >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%%Y\themeinfo.xml" "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES\themeinfo.xml" >NUL
 for /f "tokens=1,2 delims=." %%S IN ('dir /b %languageinisdir%\*.ini') DO (
 for /f "tokens=1,2 delims==" %%G in (%languageinisdir%\%%S.ini) DO (
 IF [%%G]==[LANG_TITL_SETTINGS-THEMES-PACKS-%%Y] %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\themepacks\%%Y\%id_xmbmp%\USRDIR\IMAGES" --include "themeinfo.xml" --alter --search "[%%S]_TITL_SETTINGS-THEMES-PACKS" --replace "%%H"
@@ -89,67 +75,74 @@ chcp %CodePage% >NUL
 echo.
 echo CREATING core source files ...
 echo.
-FOR %%A IN (hdd0-cfw hdd0-cobra usb000 usb001 usb006 hfw) DO (
+echo - Preparing ...
+FOR %%A IN (hdd0-cfw hdd0-cfw-full hdd0-cobra usb000 usb001 usb006 hfw) DO (
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%" mkdir "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
-xcopy /E "%pkgbasesources%\APPTITLID\*.*" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.xml" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.xml" >NUL
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" >NUL
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" >NUL
-xcopy /E "%pkgsource%\languagepacks\en-US\%id_xmbmp%\USRDIR\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" >NUL
-xcopy /E "%pkgsource%\themepacks\ORIGINAL\%id_xmbmp%\USRDIR\IMAGES" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES\" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES"
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES"
+xcopy /Y "%pkgsource%\languagepacks\en-US\%id_xmbmp%\USRDIR\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" >NUL
+xcopy /Y "%pkgsource%\languagepacks\en-US\%id_xmbmp%\USRDIR\FEATURES\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" >NUL
+xcopy /E /Y "%pkgsource%\themepacks\ORIGINAL\%id_xmbmp%\USRDIR\IMAGES\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES\" >NUL
 )
 
-FOR %%A IN (hdd0-cfw hdd0-cobra) DO (
-echo - core %%A source files ...
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\PARAM-PATCH.SFX >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-PKGMANAGE.ELF >NUL
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search " DESCRIPTION" --replace ""
-%external%\ssr\ssr  --nobackup --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "game_settings.xml" --alter --search "Latest_version_XXX.html" --replace "Latest_version_%%A.html"
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-xcopy /E "%pkgbasesources%\resource" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\" >NUL
+FOR %%A IN (hdd0-cfw hdd0-cfw-full hdd0-cobra) DO (
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource"
+xcopy /Y "%pkgbasesources%\APPTITLID\*.PNG" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\PARAM.SFX" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\resource\*.355"') DO (
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X"
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resource\%%X\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X\" >NUL
+)
 IF [%%A]==[hdd0-cfw] (
-rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-CFW.ELF EBOOT.ELF.TMP >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-COBRA.ELF >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_tv.* >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_gam2.* >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game_tool2.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
+copy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT-CFW.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" >NUL
+)
+IF [%%A]==[hdd0-cfw-full] (
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game_tool2.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
+copy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT-CFW-WITH-341.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" >NUL
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\resource\*.341"') DO (
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X"
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resource\%%X\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X\" >NUL
+)
 )
 IF [%%A]==[hdd0-cobra] (
-rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-COBRA.ELF EBOOT.ELF.TMP >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT-CFW.ELF >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game_tool2.* >NUL
-del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\category_game.* >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\*.rbg.355"') DO (
-rmdir /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_tv.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_gam2.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
+copy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT-COBRA.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" >NUL
 )
 )
+
+FOR %%A IN (hdd0-cfw hdd0-cfw-full hdd0-cobra) DO (
+echo - core %%A source files ...
+rename %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:APPTITLID -r t:%id_xmbmp%
 %external%\binmay\binmay.exe -i %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"***** XMB Manager Plus 0.00 (Rebug PM 1.1) *****" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
 del /Q /S %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search " DESCRIPTION" --replace ""
+IF [%%A]==[hdd0-cfw-full] %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "3.55" --replace "3.41"
+%external%\ssr\ssr --nobackup --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "game_settings.xml" --alter --search "Latest_version_XXX.html" --replace "Latest_version_%%A.html"
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.new" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 )
 
 FOR %%A IN (usb000 usb001 usb006 hfw) DO (
 echo - core %%A source files ...
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\*.SFX" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\*.SFX" >NUL
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\*.PNG" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\*.PNG" >NUL
-if exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.ELF" del /Q /S "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\*.ELF" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw" >NUL
-copy "%pkgbasesources%\resource\category_game.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw\category_game.xml" >NUL
-copy "%pkgbasesources%\resource\category_game_tool2.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug\category_game_tool2.xml" >NUL
-copy "%pkgbasesources%\resource\category_gam2.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra\category_gam2.xml" >NUL
-copy "%pkgbasesources%\resource\category_tv.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw\category_tv.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw\category_game.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game_tool2.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug\category_game_tool2.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_gam2.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra\category_gam2.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_tv.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw\category_tv.xml" >NUL
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
-if not [%%A]==[HFW] %external%\ssr\ssr  --nobackup --recurse --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_%%A/PS3/%id_xmbmp%"
-if [%%A]==[HFW] (
+if not [%%A]==[hfw] %external%\ssr\ssr  --nobackup --recurse --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_%%A/PS3/%id_xmbmp%"
+if [%%A]==[hfw] (
 %external%\ssr\ssr  --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_usb000/PS3/%id_xmbmp%"
 %external%\ssr\ssr  --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "game_settings.xml" --alter --search ".pkg" --replace ".rar"
 )
