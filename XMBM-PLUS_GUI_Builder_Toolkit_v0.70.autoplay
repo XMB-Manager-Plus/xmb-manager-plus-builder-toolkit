@@ -1346,7 +1346,7 @@
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>
@@ -2860,7 +2860,7 @@ Output Folder</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>
@@ -3998,7 +3998,7 @@ Build Packages</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>
@@ -5642,7 +5642,7 @@ Dropbox Folder</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>
@@ -7283,7 +7283,7 @@ Base Folder</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>
@@ -8548,7 +8548,7 @@ Working Version</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>
@@ -9557,7 +9557,7 @@ GUI Theme</Caption>
 </Event>
 <Actions/>
 <Text>
-<Body>0.60</Body>
+<Body>0.70</Body>
 <NormalColor>255</NormalColor>
 <HighlightColor>255</HighlightColor>
 <MouseDownColor>255</MouseDownColor>

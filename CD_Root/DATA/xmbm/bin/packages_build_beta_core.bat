@@ -17,7 +17,7 @@ echo.
 %external%\cecho {04}        Û{08} ษออออออออออออออออออออออออออออออออออออออออออออออออป {04}Û{\n}
 %external%\cecho {08}        ออผ                                                ศออ{\n}
 set counter=0
-for /f "tokens=1,2 delims=." %%X IN ('dir /b %pkgsource%\core-hdd*.') DO (
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 set /a counter += 1
 %external%\cecho {0F}            !counter!. %%X {\n}
 )
@@ -29,7 +29,7 @@ echo.
 :ask_core
 set /p corenum= Choose a core: 
 set counter=0
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b %pkgsource%\core-hdd*.') DO (
+for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 set /a counter += 1
 if [!counter!]==[%corenum%] (
 set coresrc=%%X
