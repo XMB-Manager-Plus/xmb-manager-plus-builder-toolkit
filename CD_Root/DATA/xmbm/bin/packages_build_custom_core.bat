@@ -53,39 +53,6 @@ goto :themes
 )
 )
 
-rem :languages
-rem cls
-rem echo.
-rem echo.
-rem %external%\cecho {04}        ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ{\n}
-rem %external%\cecho {04}        Û                                                    Û{\n}
-rem %external%\cecho {04}        Û {0E}    Language that you want for the main core{04}       Û{\n}
-rem %external%\cecho {04}        Û                                                    Û{\n}
-rem %external%\cecho {04}        ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ{\n}
-rem %external%\cecho {04}        Û{08} ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ» {04}Û{\n}
-rem %external%\cecho {08}        ÍÍ¼                                                ÈÍÍ{\n}
-rem set counter=0
-rem for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
-rem set /a counter += 1
-rem %external%\cecho {0F}            !counter!. %%X {\n}
-rem )
-rem %external%\cecho {08}        ÍÍ»                                                ÉÍÍ{\n}
-rem %external%\cecho {04}        Û {08}ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼ {04}Û{\n}
-rem %external%\cecho {04}        ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ{\n}
-rem %external%\cecho {0F}{\n}
-rem echo.
-rem :ask_language
-rem set /p langnum= Choose a language: 
-rem set counter=0
-rem for /f "tokens=1,2 delims=." %%X IN ('dir /b %languageinisdir%\*.ini') DO (
-rem set /a counter += 1
-rem if [!counter!]==[%langnum%] (
-rem set langsrc=%%X
-rem goto :themes
-rem )
-rem )
-rem goto :ask_language
-
 :themes
 cls
 echo.
@@ -125,7 +92,6 @@ echo - Building custom core installer package:
 if exist "%pkgsource%\custom" rmdir /Q /S "%pkgsource%\custom"
 mkdir "%pkgsource%\custom\%id_xmbmp%" >NUL
 xcopy %pkgsource%\%coresrc%\%id_xmbmp%\*.* /e /y %pkgsource%\custom\%id_xmbmp%\ >NUL
-rem xcopy %pkgsource%\languagepacks\%langsrc%\%id_xmbmp%\USRDIR\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\ >NUL
 xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\IMAGES\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\IMAGES\ >NUL
 echo - Compiling rco's ...
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"') DO (
@@ -152,8 +118,7 @@ move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NU
 for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\*.rco.*"') DO (
 move "%pkgsource%\custom\%%X" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\" >NUL
 )
-rem rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core_CFW-%langsrc%-%themesrc%.pkg >NUL
-rem rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core_CFW-%themesrc%.pkg >NUL
+rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core_CFW-%themesrc%.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
 if exist "%pkgsource%\custom" rmdir /Q /S "%pkgsource%\custom" >NUL
