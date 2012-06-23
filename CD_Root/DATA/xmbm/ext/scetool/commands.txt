@@ -1,0 +1,31 @@
+scetool 0.2.7 <public build> (C) 2011-2012 by naehrwert
+NP local license handling (C) 2012 by flatz
+USAGE: scetool [options] command
+COMMANDS               Parameters            Explanation
+ -h, --help                                  Print this help.
+ -k, --print-keys                            List keys.
+ -i, --print-infos file_in                   Print SCE file info.
+ -d, --decrypt     file_in file_out          Decrypt/dump SCE file.
+ -e, --encrypt     file_in file_out          Encrypt/create SCE file.
+OPTIONS                Possible Values       Explanation
+ -v, --verbose                               Enable verbose output.
+ -r, --raw                                   Enable raw value output.
+ -0, --sce-type        SELF/RVK/PKG/SPP      SCE File Type
+ -1, --compress-data   TRUE/FALSE(default)   Whether to compress data or not.
+ -s, --skip-sections   TRUE(default)/FALSE   Whether to skip sections or not.
+ -2, --key-revision    e.g. 00,01,...,0A,... Key Revision
+ -m, --meta-info                             Use provided meta info to decrypt.
+ -3, --self-auth-id    e.g. 1010000001000003 Authentication ID
+ -4, --self-vendor-id  e.g. 01000002         Vendor ID
+ -5, --self-type       LV0/LV1/LV2/APP/ISO/
+                       LDR/NPDRM             SELF Type
+ -6, --self-fw-version e.g. 0003004100000000 Firmware Version
+ -7, --self-add-shdrs  TRUE(default)/FALSE   Whether to add ELF shdrs or not.
+ -8, --self-ctrl-flags 32 bytes              Override control flags.
+ -9, --self-cap-flags  32 bytes              Override capability flags.
+ -b, --np-license-type LOCAL/FREE            License Type
+ -c, --np-app-type     SPRX/EXEC/UPDATE      App Type
+ -f, --np-content-id                         Content ID
+ -l, --np-klicensee    16 bytes              Override klicensee.
+ -g, --np-real-fname   e.g. EBOOT.BIN        Real Filename
+ -j, --np-add-sig      TRUE/FALSE(default)   Whether to add a NP sig. or not.
