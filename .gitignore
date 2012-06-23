@@ -12,4 +12,5 @@ CD_Root/DATA/xmbm/bin/test_out
 CD_Root/DATA/xmbm/ext/notepad/config.xml
 CD_Root/DATA/xmbm/ext/notepad/session.xml
 CD_Root/DATA/xmbm/ext/notepad/shortcuts.xml
-CD_Root/DATA/xmbm/ext/scetool
+CD_Root/DATA/xmbm/ext/scetool/data
+CD_Root/DATA/xmbm/ext/scetool/test

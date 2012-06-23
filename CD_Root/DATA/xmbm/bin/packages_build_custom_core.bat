@@ -102,8 +102,13 @@ move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\custom\" >
 )
 rename "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco" *.
 echo - Compiling elf ...
-%external%\make_self\make_self_npdrm.exe "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.BIN" UP0001-%id_xmbmp%_00-0000000000000000 >NUL
+copy "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%external%\scetool\" >NUL
 move "%pkgsource%\custom\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\custom\" >NUL
+cd "%external%\scetool\" >NUL
+scetool.exe --sce-type=SELF --compress-data=TRUE --key-revision=000A --self-auth-id=0000000000000000 --self-vendor-id=00000000 --self-type=NPDRM --self-fw-version=0003004100000000 --np-license-type=FREE --np-content-id=%id_xmbmp% --np-app-type=EXEC --np-real-fname=EBOOT.BIN --encrypt "EBOOT.ELF" "EBOOT.BIN"
+cd "%~dp0" >NUL
+del /Q "%external%\scetool\EBOOT.ELF" > NUL
+move "%external%\scetool\EBOOT.BIN" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" > NUL
 echo - Converting sfx to sfo ...
 %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\custom\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\custom\%id_xmbmp%\PARAM.SFO
 move "%pkgsource%\custom\%id_xmbmp%\PARAM.SFX" "%pkgsource%\custom\" >NUL

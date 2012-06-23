@@ -11,6 +11,13 @@ xcopy /E "%pkgbaseoriginalsources%\*.*" "%pkgbasesources%\" >NUL
 IF NOT EXIST "%pkgsource%\" mkdir "%pkgsource%" >NUL
 IF NOT EXIST "%pkgoutput%\" mkdir "%pkgoutput%" >NUL
 
+IF NOT EXIST "%external%\scetool\data" (
+mkdir "%external%\scetool\data" >NUL
+%external%\wget http://www.ps3devwiki.com/files/devtools/scetool/data/keys -O %external%\scetool\data\keys > NUL
+%external%\wget http://www.ps3devwiki.com/files/devtools/scetool/data/ldr_curves -O %external%\scetool\data\ldr_curves > NUL
+%external%\wget http://www.ps3devwiki.com/files/devtools/scetool/data/vsh_curves -O %external%\scetool\data\vsh_curves > NUL
+)
+
 if [%encoding_prep%]==[no] (
 reg add HKEY_CURRENT_USER\Console /v FaceName /t REG_SZ /d "Lucida Console" /f >NUL
 reg add HKEY_CURRENT_USER\Console /v FontFamily /t REG_DWORD /d 00000036 /f >NUL
