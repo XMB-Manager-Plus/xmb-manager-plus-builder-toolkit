@@ -5,6 +5,7 @@ CD_Root/icon.ico
 CD_Root/lua5.1.dll
 CD_Root/lua51.dll
 CD_Root/DATA/xmbm/bin/base-source
+CD_Root/DATA/xmbm/bin/*.pkg
 CD_Root/DATA/xmbm/source
 CD_Root/DATA/xmbm/output
 CD_Root/DATA/xmbm/old
