@@ -133,15 +133,6 @@ Update Bin From GitHub: Updates the current bin folder (including main base sour
 
 Shows information about this release and the team have make it
 
-## XMBM+ Builder Toolkit Credits
-
--  GUI: XiorgON
--  Batch coding: andreus, ps3hen, XiorgON
--  SFX/SFO editor/converter: aldostools
--  Graphical design: Berion
-
--  A Special Big Thanks to all the Team XMBM+ and the public because without you the project would never exist
-
 ## Credits
 
 ### XMBM+
@@ -165,10 +156,15 @@ Shows information about this release and the team have make it
 -  SFX/SFO editor/converter: aldostools
 -  Graphical design: Berion
 
+## XMBM+ Installer
+
+-  Coding: andreus
+
 ### Special thanks
 
 - rebug team for the package manager installer
 - sandungas for the ps3devwiki and all is help
+- deroad for the PSXBrew, NoRSX and all is help
 - all xmbm+ toolkit tools developers
 - all the testers and bug reporters
 - and of course the users
@@ -184,3 +180,4 @@ The entire source in available for download in the git
 -  Development page: http://www.ps3crunch.net/forum/threads/2431
 -  Git: https://github.com/XMB-Manager-Plus/xmb-manager-plus
 -  Git (Builder Toolkit): https://github.com/XMB-Manager-Plus/xmb-manager-plus-builder-toolkit
+-  Git (Installer): https://github.com/XMB-Manager-Plus/xmb-manager-plus-installer
