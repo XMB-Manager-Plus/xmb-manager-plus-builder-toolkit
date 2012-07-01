@@ -156,7 +156,7 @@ Shows information about this release and the team have make it
 -  SFX/SFO editor/converter: aldostools
 -  Graphical design: Berion
 
-## XMBM+ Installer
+### XMBM+ Installer
 
 -  Coding: andreus
 
