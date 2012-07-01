@@ -75,13 +75,17 @@ if ["%suffix%"]==[""] goto :ask_suffix
 call "%bindir%\global_messages.bat" "BUILDING"
 echo - Building beta %coresrc% installer package:
 echo - Compiling rco's ...
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.rco.*"') DO (
-cd "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*."') DO (
+cd "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\%%C.xml" "%~dp0\%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C.rco"
 cd "%~dp0"
-move "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%coresrc%\" >NUL
+if not exist "%pkgsource%\%coresrc%\resources-temp\%%X\%%O\xmbmanpls\rco" mkdir "%pkgsource%\%coresrc%\resources-temp\%%X\%%O\xmbmanpls\rco"
+move "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\%coresrc%\resources-temp\%%X\%%O\xmbmanpls\rco\" >NUL
 )
-rename "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.rco" *.
+)
+)
 echo - Compiling elf ...
 copy "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%external%\scetool\" >NUL
 move "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\%coresrc%\" >NUL
@@ -101,9 +105,15 @@ del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%coresrc%\EBOOT.ELF" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\" >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\*.rco.*"') DO (
-move "%pkgsource%\%coresrc%\%%X" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resource\" >NUL
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%coresrc%\resources-temp\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%coresrc%\resources-temp\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%coresrc%\resources-temp\%%X\%%O\xmbmanpls\rco\*."') DO (
+del /Q "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*.rco" >NUL
+move "%pkgsource%\%coresrc%\resources-temp\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\" >NUL
 )
+)
+)
+rmdir /S /Q "%pkgsource%\%coresrc%\resources-temp"
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_%version%_%suffix%_Core_CFW.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL

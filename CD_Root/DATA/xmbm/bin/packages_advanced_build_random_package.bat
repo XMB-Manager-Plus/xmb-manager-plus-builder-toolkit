@@ -61,18 +61,20 @@ if ["%pkgname%"]==[""] goto :ask_name
 call "%bindir%\global_messages.bat" "BUILDING"
 
 if [%sourcesrc%]==[core-hdd0-cfw] set res=true
-if [%sourcesrc%]==[core-hdd0-cfw-full] set res=true
-if [%sourcesrc%]==[core-hdd0-cobra] set res=true
 if ["%res%"]==["true"] (
 echo - Building %sourcesrc% installer package:
 echo - Compiling rco's ...
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*"') DO (
-cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile  --zlib-level 1  "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X\%%X.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X.rco"
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*."') DO (
+cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\%%C.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C.rco"
 cd "%~dp0"
-move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\%%X" "%pkgsource%\%sourcesrc%\" >NUL
+if not exist "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\xmbmanpls\rco" mkdir "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\xmbmanpls\rco"
+move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\xmbmanpls\rco\" >NUL
 )
-rename "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco" *.
+)
+)
 echo - Compiling elf ...
 copy "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%external%\scetool\" >NUL
 move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\%sourcesrc%\" >NUL
@@ -94,9 +96,16 @@ del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%sourcesrc%\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\" >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\*.rco.*"') DO (
-move "%pkgsource%\%sourcesrc%\%%X" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resource\" >NUL
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\xmbmanpls\rco\*."') DO (
+del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*.rco" >NUL
+move "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\" >NUL
 )
+)
+)
+rmdir /S /Q "%pkgsource%\%sourcesrc%\resources-temp"
+
 )
 if not ["%res%"]==["true"] (
 echo - Building installer package ...

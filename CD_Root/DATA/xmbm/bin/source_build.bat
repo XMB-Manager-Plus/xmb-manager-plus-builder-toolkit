@@ -36,7 +36,7 @@ echo.
 echo CREATING core source files ...
 echo.
 echo - Preparing ...
-FOR %%A IN (hdd0-cfw hdd0-cfw-full hdd0-cobra usb000 usb001 usb006 hfw) DO (
+FOR %%A IN (hdd0-cfw usb000 usb001 usb006 hfw) DO (
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES"
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES"
@@ -45,33 +45,12 @@ xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\FEATURES\*.xml" "%pkgsource%\core-%%
 xcopy /E /Y "%pkgsource%\themepacks\%default_theme%\%id_xmbmp%\USRDIR\IMAGES\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\IMAGES\" >NUL
 )
 
-FOR %%A IN (hdd0-cfw hdd0-cfw-full hdd0-cobra) DO (
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource"
+FOR %%A IN (hdd0-cfw) DO (
 xcopy /Y "%pkgbasesources%\APPTITLID\*.PNG" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\PARAM.SFX" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\resource\*.355"') DO (
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X"
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resource\%%X\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X\" >NUL
-)
-IF [%%A]==[hdd0-cfw] (
-xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game_tool2.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-copy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT-CFW.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" >NUL
-)
-IF [%%A]==[hdd0-cfw-full] (
-xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game_tool2.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-copy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT-CFW-WITH-341.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" >NUL
-for /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\resource\*.341"') DO (
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X"
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resource\%%X\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%X\" >NUL
-)
-)
-IF [%%A]==[hdd0-cobra] (
-xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_tv.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\resource\category_gam2.xml.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" >NUL
-copy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT-COBRA.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\EBOOT.ELF" >NUL
-)
+xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources"
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\*.*" >NUL
 )
 
 for /f "tokens=1,2 delims=." %%S IN ('dir /b %languageinisdir%\*.ini') DO (
@@ -83,17 +62,21 @@ IF NOT [%%H]==[] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S
 echo ^</TextLang^> >> %languageinisdir%\%%S.rco.tmp
 )
 
-FOR %%A IN (hdd0-cfw hdd0-cfw-full hdd0-cobra) DO (
+FOR %%A IN (hdd0-cfw) DO (
 echo - core %%A source files ...
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\*.rco.*"') DO (
-FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%C\Text\*.xml"') DO (
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*."') DO (
+FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\Text\*.xml"') DO (
 set LCODE=%default_lang%
 FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\language_map.ini) DO (
 IF [%%H]==[%%E] set LCODE=%%G
 )
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
-type %languageinisdir%\!LCODE!.rco.tmp >> %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\%%C\Text\%%E.xml
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
+type %languageinisdir%\!LCODE!.rco.tmp >> %pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\Text\%%E.xml
+)
+)
 )
 )
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES" --include "Download_*.xml" --alter --search "<Pair key=''info''><String>LANG_INFO_DOWNLOADMANAGER-HOMEBREW-AUTHOR: " --replace "<Pair key=''info''><String>"
@@ -116,15 +99,15 @@ for /f "tokens=1,2 delims=*" %%A IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\FEATURES" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 rename %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT.ELF EBOOT.ELF.TMP >NUL
-%external%\binmay\binmay.exe -i %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -s t:APPTITLID -r t:%id_xmbmp%
-%external%\binmay\binmay.exe -i %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"***** XMB Manager Plus 0.00 (Rebug PM 1.1) *****" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
+%external%\binmay\binmay.exe -i %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT.ELF.TMP -o %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:APPTITLID -r t:%id_xmbmp%
+:: %external%\binmay\binmay.exe -i %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT2.ELF.TMP -o %pkgsource%\%%A\%id_xmbmp%\USRDIR\EBOOT.ELF -s t:"***** XMB Manager Plus 0.00 (Rebug PM 1.1) *****" -r t:"***** XMB Manager Plus %working_version% (Rebug PM 1.1) *****"
 del /Q /S %pkgsource%\%%A\%id_xmbmp%\USRDIR\*.TMP >NUL
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search " DESCRIPTION" --replace ""
-IF [%%A]==[core-hdd0-cfw-full] %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "3.55" --replace "3.41"
-%external%\ssr\ssr --nobackup --encoding utf8  --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\resource" --include "*.new" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --encoding utf8  --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\resource" --include "*.new" --alter --search "XMBMP-VERSION" --replace "%working_version%"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "3.55" --replace "3.41"
+%external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+%external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 )
 
 FOR %%A IN (usb000 usb001 usb006 hfw) DO (
@@ -151,16 +134,16 @@ IF EXIST "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\FEATURES\Personal_Area.xml" IF 
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "FILEPROVIDER_BASE_URL" --replace "%fileprovider_base_url%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cfw\category_game.xml" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_game_tool2.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\rebug\category_game_tool2.xml" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_gam2.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\cobra\category_gam2.xml" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resource\category_tv.xml.new" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource\nfw\category_tv.xml" >NUL
-%external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
-%external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resource" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cfw" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\rebug" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\rebug" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cobra" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cobra" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\nfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\nfw" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cfw\xmbmanpls\xml\category_game.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cfw\category_game.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\rebug\xmbmanpls\xml\category_game_tool2.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\rebug\category_game_tool2.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cobra\xmbmanpls\xml\category_gam2.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cobra\category_gam2.xml" >NUL
+copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\nfw\xmbmanpls\xml\category_tv.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\nfw\category_tv.xml" >NUL
+%external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
+%external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 if not [%%A]==[hfw] %external%\ssr\ssr  --nobackup --recurse --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_%%A/PS3/%id_xmbmp%"
 if [%%A]==[hfw] (
 %external%\ssr\ssr  --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_usb000/PS3/%id_xmbmp%"
@@ -181,8 +164,6 @@ copy "%bindir%\package.conf.template" "%pkgsource%\package-%id_xmbmp%.conf" >NUL
 %external%\ssr\ssr --nobackup --encoding auto --dir "%pkgsource%" --include "*.conf" --alter --search "APP_VER = 0.00" --replace "APP_VER = %working_version%"
 copy "%pkgsource%\package-%id_xmbmp%.conf" "%pkgsource%\package-%id_xmbmp%-PATCH.conf" >NUL
 %external%\ssr\ssr --nobackup --encoding auto --dir "%pkgsource%" --include "package-%id_xmbmp%-PATCH.conf" --alter --search "%type_xmbmp%" --replace "%type_xmbmp_patch%"
-
-move /Y "%pkgbasesources%\resource" "%pkgbasesources%\APPTITLID\USRDIR\" >NUL
 
 :done
 call "%bindir%\global_messages.bat" "SOURCE-BUILDING-OK"
