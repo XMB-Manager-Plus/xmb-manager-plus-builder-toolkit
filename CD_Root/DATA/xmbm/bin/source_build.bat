@@ -55,8 +55,8 @@ xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\data\*.*" "%pkgsource%\core-%%A\%
 if [%%A]==[hdd0-cfw-full]  xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\*.*" >NUL
 if [%%A]==[hdd0-cfw] (
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55"
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cfw" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\" >NUL
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\rebug" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cfw*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55\" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\rebug*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55\" >NUL
 )
 )
 
