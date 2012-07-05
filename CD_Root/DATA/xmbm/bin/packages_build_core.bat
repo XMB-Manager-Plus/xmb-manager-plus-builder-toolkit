@@ -50,6 +50,7 @@ move "%pkgsource%\%%A\resources-temp\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\%%A
 )
 rmdir /S /Q "%pkgsource%\%%A\resources-temp"
 if [%%A]==[core-hdd0-cfw] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_CFW.pkg >NUL
+if [%%A]==[core-hdd0-cfw-full] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_CFW_FULL.pkg >NUL
 )
 
 FOR %%A IN (usb000 usb001 usb006 hfw) DO (

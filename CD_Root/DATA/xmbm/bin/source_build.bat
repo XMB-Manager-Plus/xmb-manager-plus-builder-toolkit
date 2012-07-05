@@ -36,7 +36,7 @@ echo.
 echo CREATING core source files ...
 echo.
 echo - Preparing ...
-FOR %%A IN (hdd0-cfw usb000 usb001 usb006 hfw) DO (
+FOR %%A IN (hdd0-cfw hdd0-cfw-full usb000 usb001 usb006 hfw) DO (
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES"
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES"
@@ -45,14 +45,19 @@ xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\FEATURES\*.xml" "%pkgsource%\c
 xcopy /E /Y "%pkgsource%\themepacks\%default_theme%\%id_xmbmp%\USRDIR\xmbmp\IMAGES\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES\" >NUL
 )
 
-FOR %%A IN (hdd0-cfw) DO (
+FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 xcopy /Y "%pkgbasesources%\APPTITLID\*.PNG" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\PARAM.SFX" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" >NUL
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources"
 if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data"
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\data\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data\*.*" >NUL
+if [%%A]==[hdd0-cfw-full]  xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\*.*" >NUL
+if [%%A]==[hdd0-cfw] (
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55"
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cfw" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\rebug" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\" >NUL
+)
 )
 
 for /f "tokens=1,2 delims=." %%S IN ('dir /b %languageinisdir%\*.ini') DO (
@@ -64,7 +69,7 @@ IF NOT [%%H]==[] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S
 echo ^</TextLang^> >> %languageinisdir%\%%S.rco.tmp
 )
 
-FOR %%A IN (hdd0-cfw) DO (
+FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 echo - core %%A source files ...
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
