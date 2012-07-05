@@ -58,7 +58,7 @@ cd "%pkgsource%\core-%%A"
 cd "%~dp0"
 )
 echo - Building theme pack installer packages ...
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\IMAGES\*.') DO (
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\*.') DO (
 %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFO
 move "%pkgsource%\themepacks\%%Y\%id_xmbmp%\PARAM.SFX" "%pkgsource%\themepacks\%%Y\" >NUL
 %external%\%packager% %pkgsource%\package-%id_xmbmp%-PATCH.conf %pkgsource%\themepacks\%%Y\%id_xmbmp%

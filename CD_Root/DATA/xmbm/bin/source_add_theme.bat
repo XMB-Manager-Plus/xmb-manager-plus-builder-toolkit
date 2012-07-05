@@ -24,7 +24,7 @@ echo.
 :ask_themeid
 set /p themeid= Theme id: 
 if ["%themeid%"]==[""] goto :ask_themeid
-if exist "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%themeid%\" (
+if exist "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\%themeid%\" (
 call "%bindir%\global_messages.bat" "SOURCE-THEME-EXISTS"
 goto :ask_themeid
 )
@@ -62,18 +62,18 @@ set /p themeauthor= Theme author:
 if ["%themeauthor%"]==[""] goto :ask_themeauthor
 call "%bindir%\global_messages.bat" "BUILDING"
 :: Create new theme folder
-mkdir "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%themeid%" >NUL
-xcopy /E "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%default_theme%" "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%themeid%\" >NUL
+mkdir "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\%themeid%" >NUL
+xcopy /E "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\%default_theme%" "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\%themeid%\" >NUL
 :: Add new theme variables to all languages ini
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%languageinisdir%" --include "*.ini" --alter --search "LANG_TITL_SETTINGS-ABOUT-MAIN" --replace "LANG_TITL_SETTINGS-THEMES-PACKS-%themeid%=%themetitle%/SSR_CR//SSR_LF/LANG_INFO_SETTINGS-THEMES-PACKS-%themeid%=%themeinfo%. Author: %themeauthor%/SSR_CR//SSR_LF/LANG_TITL_SETTINGS-ABOUT-MAIN"
 :: Add theme to game_settings.xml
-%external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR" --include "game_settings.xml" --alter --search "<Table key=''%default_theme%''>" --replace "<Table key=''%themeid%''>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''icon''><String>/dev_hdd0/game/APPTITLID/USRDIR/IMAGES/theme.png</String></Pair><Pair key=''title''><String>LANG_TITL_SETTINGS-THEMES-PACKS-%themeid%</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''info''><String>LANG_INFO_SETTINGS-THEMES-PACKS-%themeid%</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''module_name''><String>webbrowser_plugin</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''module_action''><String>FILEPROVIDER_BASE_URL/APPTITLID/THEMEPACKS/XMBM%2BvXMBMP-VERSION-THEMEPACK-%themeid%.pkg</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/</Table>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Table key=''%default_theme%''>"
-%external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR" --include "game_settings.xml" --alter --search "attr=''blue''/>" --replace "attr=''blue''/>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Item class=''type:x-xmb/module-action'' key=''%themeid%'' attr=''%themeid%''/>"
+%external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "<Table key=''%default_theme%''>" --replace "<Table key=''%themeid%''>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''icon''><String>/dev_hdd0/game/APPTITLID/USRDIR/xmbmp/IMAGES/theme.png</String></Pair><Pair key=''title''><String>LANG_TITL_SETTINGS-THEMES-PACKS-%themeid%</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''info''><String>LANG_INFO_SETTINGS-THEMES-PACKS-%themeid%</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''module_name''><String>webbrowser_plugin</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB//SSR_TAB/<Pair key=''module_action''><String>FILEPROVIDER_BASE_URL/APPTITLID/THEMEPACKS/XMBM%2BvXMBMP-VERSION-THEMEPACK-%themeid%.pkg</String></Pair>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/</Table>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Table key=''%default_theme%''>"
+%external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgbasesources%\APPTITLID\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "attr=''blue''/>" --replace "attr=''blue''/>/SSR_CR//SSR_LF//SSR_TAB//SSR_TAB//SSR_TAB/<Item class=''type:x-xmb/module-action'' key=''%themeid%'' attr=''%themeid%''/>"
 
 :done
 call "%bindir%\global_messages.bat" "SOURCE-THEME-CREATED"
-start explorer.exe "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%themeid%\"
-start %external%\notepad\notepad++.exe "%pkgbasesources%\APPTITLID\USRDIR\IMAGES\%themeid%\themeinfo.xml"
+start explorer.exe "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\%themeid%\"
+start %external%\notepad\notepad++.exe "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\IMAGES\%themeid%\themeinfo.xml"
 goto :end
 
 :end
