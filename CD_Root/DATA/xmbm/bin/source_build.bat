@@ -36,10 +36,10 @@ echo.
 echo CREATING core source files ...
 echo.
 echo - Preparing ...
-FOR %%A IN (hdd0-cfw hdd0-cfw-full usb000 usb001 usb006 hfw) DO (
+FOR %%A IN (hdd0-cfw hdd0-cfw-full hfw) DO (
 if exist "%pkgsource%\core-%%A" rmdir /Q /S "%pkgsource%\core-%%A" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES"
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES"
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\FEATURES\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" >NUL
 xcopy /E /Y "%pkgsource%\themepacks\%default_theme%\%id_xmbmp%\USRDIR\xmbmp\IMAGES\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES\" >NUL
@@ -49,14 +49,13 @@ FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 xcopy /Y "%pkgbasesources%\APPTITLID\*.PNG" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\PARAM.SFX" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\EBOOT.ELF" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources"
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data"
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\data\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data\*.*" >NUL
-if [%%A]==[hdd0-cfw-full]  xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\*.*" >NUL
+if [%%A]==[hdd0-cfw-full] xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\*.*" >NUL
 if [%%A]==[hdd0-cfw] (
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55"
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cfw\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55\cfw\*.*" >NUL
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55\rebug\*.*" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\Normal CFW\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55\Normal CFW\*.*" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.55\Rebug\*.*" >NUL
 )
 )
 
@@ -96,7 +95,6 @@ type %languageinisdir%\!LCODE!.rco.tmp >> %pkgsource%\core-%%A\%id_xmbmp%\USRDIR
 )
 del /Q /S %languageinisdir%\*.tmp >NUL
 
-echo - Finalizing ...
 for /f "tokens=1,2 delims=*" %%A IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "Latest_version_XXX.html" --replace "Latest_version_%%A.html"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "FILEPROVIDER_BASE_URL" --replace "%fileprovider_base_url%"
@@ -113,7 +111,7 @@ for /f "tokens=1,2 delims=*" %%A IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 %external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 )
 
-FOR %%A IN (usb000 usb001 usb006 hfw) DO (
+FOR %%A IN (hfw) DO (
 echo - core %%A source files ...
 FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\%default_lang%.ini) DO (
 FOR /F "tokens=1,2 delims=-" %%E IN ('echo %%G') DO (
@@ -137,21 +135,20 @@ IF EXIST "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES\Personal_Area.xm
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "FILEPROVIDER_BASE_URL" --replace "%fileprovider_base_url%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cfw" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\rebug" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\rebug" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cobra" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cobra" >NUL
-if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\nfw" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\nfw" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cfw\xmbmanpls\xml\category_game.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cfw\category_game.xml" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\rebug\xmbmanpls\xml\category_game_tool2.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\rebug\category_game_tool2.xml" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\cobra\xmbmanpls\xml\category_gam2.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\cobra\category_gam2.xml" >NUL
-copy "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\nfw\xmbmanpls\xml\category_tv.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\nfw\category_tv.xml" >NUL
+for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\resources\3.55\*.') DO (
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\%%Y\xmbmanpls\xml\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%Y\*.xml" >NUL
+)
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
-if not [%%A]==[hfw] %external%\ssr\ssr  --nobackup --recurse --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_%%A/PS3/%id_xmbmp%"
-if [%%A]==[hfw] (
 %external%\ssr\ssr  --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_usb000/PS3/%id_xmbmp%"
 %external%\ssr\ssr  --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search ".pkg" --replace ".rar"
 )
+FOR %%A IN (usb000 usb001 usb006) DO (
+xcopy /E /Y "%pkgsource%\core-hfw\*.*" "%pkgsource%\core-%%A\*.*" >NUL
+%external%\ssr\ssr  --nobackup --recurse --encoding auto --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "/dev_usb000/PS3/%id_xmbmp%" --replace "/dev_%%A/PS3/%id_xmbmp%"
+)
+
+FOR %%A IN (usb000 usb001 usb006 hfw) DO (
 %external%\ssr\ssr  --nobackup --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "Latest_version_XXX.html" --replace "Latest_version_%%A.html"
 mkdir "%pkgsource%\core-%%A\PS3" >NUL
 move /Y "%pkgsource%\core-%%A\%id_xmbmp%" "%pkgsource%\core-%%A\PS3\" >NUL
