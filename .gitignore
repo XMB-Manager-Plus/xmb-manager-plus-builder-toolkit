@@ -9,6 +9,7 @@ CD_Root/DATA/xmbm/bin/*.pkg
 CD_Root/DATA/xmbm/source
 CD_Root/DATA/xmbm/output
 CD_Root/DATA/xmbm/old
+CD_Root/DATA/xmbm/_flash-source
 CD_Root/DATA/xmbm/bin/test_out
 CD_Root/DATA/xmbm/ext/notepad/config.xml
 CD_Root/DATA/xmbm/ext/notepad/session.xml
