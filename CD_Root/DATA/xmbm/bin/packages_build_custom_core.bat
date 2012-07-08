@@ -96,12 +96,12 @@ xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\xmbmp\IMAGES\*.* /e /y
 echo - Compiling rco's ...
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*."') DO (
-cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C\%%C.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C.rco"
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\*."') DO (
+cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C"
+"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C\%%C.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C.rco"
 cd "%~dp0"
-if not exist "%pkgsource%\custom\resources-temp\%%X\%%O\xmbmanpls\rco" mkdir "%pkgsource%\custom\resources-temp\%%X\%%O\xmbmanpls\rco"
-move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\custom\resources-temp\%%X\%%O\xmbmanpls\rco\" >NUL
+if not exist "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\rco" mkdir "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\rco"
+move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C" "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\rco\" >NUL
 )
 )
 )
@@ -133,9 +133,9 @@ del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NUL
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\resources-temp\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\custom\resources-temp\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\resources-temp\%%X\%%O\xmbmanpls\rco\*."') DO (
-del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\*.rco" >NUL
-move "%pkgsource%\custom\resources-temp\%%X\%%O\xmbmanpls\rco\%%C" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\xmbmanpls\rco\" >NUL
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\rco\*."') DO (
+del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\*.rco" >NUL
+move "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\rco\%%C" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\" >NUL
 )
 )
 )
