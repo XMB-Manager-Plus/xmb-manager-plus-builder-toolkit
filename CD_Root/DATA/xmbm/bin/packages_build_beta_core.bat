@@ -90,7 +90,7 @@ echo - Compiling elf ...
 copy "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%external%\scetool\" >NUL
 move "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\EBOOT.ELF" "%pkgsource%\%coresrc%\" >NUL
 cd "%external%\scetool\" >NUL
-scetool.exe --sce-type=SELF --self-add-shdrs=TRUE --self-ctrl-flags=4000000000000000000000000000000000000000000000000000000000000000 --compress-data=TRUE --skip-sections=TRUE --key-revision=00,01 --self-auth-id=1010000001000003 --self-vendor-id=01000002 --self-type=NPDRM --self-fw-version=0003004100000000 --np-license-type=FREE --np-content-id=UP0001-%id_xmbmp%_00-0000000000000000 --np-app-type=EXEC --np-real-fname=EBOOT.BIN --encrypt "EBOOT.ELF" "EBOOT.BIN"
+scetool.exe --sce-type=SELF --self-add-shdrs=TRUE --self-ctrl-flags=4000000000000000000000000000000000000000000000000000000000000000 --compress-data=TRUE --skip-sections=TRUE --key-revision=01 --self-app-version=0001000000000000 --self-auth-id=1010000001000003 --self-vendor-id=01000002 --self-type=NPDRM --self-fw-version=0003004000000000 --np-license-type=FREE --np-content-id=UP0001-%id_xmbmp%_00-0000000000000000 --np-app-type=EXEC --np-real-fname=EBOOT.BIN --encrypt "EBOOT.ELF" "EBOOT.BIN"
 cd "%~dp0" >NUL
 del /Q "%external%\scetool\EBOOT.ELF" > NUL
 move "%external%\scetool\EBOOT.BIN" "%pkgsource%\%coresrc%\%id_xmbmp%\USRDIR\" > NUL
