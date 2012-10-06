@@ -72,15 +72,15 @@ FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 echo - core %%A source files ...
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\*."') DO (
-FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C\Text\*.xml"') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*."') DO (
+FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C\Text\*.xml"') DO (
 set LCODE=%default_lang%
 FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\language_map.ini) DO (
 IF [%%H]==[%%E] set LCODE=%%G
 )
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
-type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C\Text\%%E.xml"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
+type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C\Text\%%E.xml"
 )
 )
 )
@@ -135,7 +135,7 @@ IF EXIST "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES\Personal_Area.xm
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 for /f "tokens=1,2 delims=." %%Y IN ('dir /b %pkgbasesources%\APPTITLID\USRDIR\resources\3.55\*.') DO (
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\%%Y\XMB Manager Plus\xml\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%Y\*.xml" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\resources\3.55\%%Y\XMB Manager Plus\dev_flash~vsh~resource~explore~xmb\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources\%%Y\*.xml" >NUL
 )
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\resources" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"

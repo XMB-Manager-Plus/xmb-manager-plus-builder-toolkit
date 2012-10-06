@@ -66,12 +66,12 @@ echo - Building %sourcesrc% installer package:
 echo - Compiling rco's ...
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\*."') DO (
-cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C"
-"%~dp0\%external%\rcomage\Rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C\%%C.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C.rco"
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*."') DO (
+cd "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C"
+"%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C.rco"
 cd "%~dp0"
-if not exist "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\rco" mkdir "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\rco"
-move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\%%C" "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\rco\" >NUL
+if not exist "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource" mkdir "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource"
+move "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C" "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\" >NUL
 )
 )
 )
@@ -98,9 +98,9 @@ del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%sourcesrc%\EBOOT.ELF" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\" >NUL
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\rco\*."') DO (
-del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\*.rco" >NUL
-move "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\rco\%%C" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\rco\" >NUL
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*."') DO (
+del /Q "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*.rco" >NUL
+move "%pkgsource%\%sourcesrc%\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C" "%pkgsource%\%sourcesrc%\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\" >NUL
 )
 )
 )
