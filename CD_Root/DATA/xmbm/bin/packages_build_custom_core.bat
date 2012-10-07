@@ -94,14 +94,14 @@ mkdir "%pkgsource%\custom\%id_xmbmp%" >NUL
 xcopy %pkgsource%\%coresrc%\%id_xmbmp%\*.* /e /y %pkgsource%\custom\%id_xmbmp%\ >NUL
 xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\xmbmp\IMAGES\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\xmbmp\IMAGES\ >NUL
 echo - Compiling rco's ...
-FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\3.*"') DO (
-FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*."') DO (
-cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C"
-"%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C.rco"
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*."') DO (
+cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C"
+"%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C.rco"
 cd "%~dp0"
-if not exist "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource" mkdir "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource"
-move "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C" "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\" >NUL
+if not exist "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource" mkdir "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource"
+move "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C" "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\" >NUL
 )
 )
 )
@@ -131,15 +131,15 @@ del /Q "%pkgsource%\custom\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NUL
-FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\resources-temp\3.*"') DO (
-FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\custom\resources-temp\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*."') DO (
-del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\*.rco" >NUL
-move "%pkgsource%\custom\resources-temp\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\%%C" "%pkgsource%\custom\%id_xmbmp%\USRDIR\resources\%%X\%%O\XMB Manager Plus\dev_flash~vsh~resource\" >NUL
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\apps-temp\XMB Manager Plus\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\*."') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*."') DO (
+del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*.rco" >NUL
+move "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C" "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\" >NUL
 )
 )
 )
-rmdir /S /Q "%pkgsource%\custom\resources-temp"
+rmdir /S /Q "%pkgsource%\custom\apps-temp"
 rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%version%_Core_CFW-%themesrc%.pkg >NUL
 if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 move %bindir%\*.pkg "%pkgoutput%\" >NUL
