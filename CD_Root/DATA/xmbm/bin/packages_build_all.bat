@@ -13,12 +13,12 @@ echo - Building core %%A installer package:
 echo - Compiling rco's ...
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*."') DO (
-cd "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C"
-"%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C.rco"
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\*."') DO (
+cd "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C"
+"%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C.rco"
 cd "%~dp0"
-if not exist "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource" mkdir "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource"
-move "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\" >NUL
+if not exist "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource" mkdir "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource"
+move "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\" >NUL
 )
 )
 )
@@ -42,9 +42,9 @@ del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%%A\EBOOT.ELF" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\" >NUL
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*."') DO (
-del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*.rco" >NUL
-move "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\" >NUL
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\*."') DO (
+del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\*.rco" >NUL
+move "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\" >NUL
 )
 )
 )

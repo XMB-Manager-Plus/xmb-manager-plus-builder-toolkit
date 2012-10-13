@@ -45,6 +45,9 @@ xcopy /Y "%pkgbasesources%\APPTITLID\USRDIR\xmbmp\FEATURES\*.xml" "%pkgsource%\c
 xcopy /E /Y "%pkgsource%\themepacks\%default_theme%\%id_xmbmp%\USRDIR\xmbmp\IMAGES\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\IMAGES\" >NUL
 )
 
+
+
+
 FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 xcopy /Y "%pkgbasesources%\APPTITLID\*.PNG" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
 xcopy /Y "%pkgbasesources%\APPTITLID\PARAM.SFX" "%pkgsource%\core-%%A\%id_xmbmp%" >NUL
@@ -69,33 +72,26 @@ echo ^</TextLang^> >> %languageinisdir%\%%S.rco.tmp
 )
 
 FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
-echo - core %%A source files ...
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\*."') DO (
-FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C\Text\*.xml"') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\*."') DO (
+FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text\*.xml"') DO (
 set LCODE=%default_lang%
 FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\language_map.ini) DO (
 IF [%%H]==[%%E] set LCODE=%%G
 )
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
-type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\dev_flash~vsh~resource\%%C\Text\%%E.xml"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
+type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text\%%E.xml"
 )
 )
 )
 )
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "Download_*.xml" --alter --search "<Pair key=''info''><String>LANG_INFO_DOWNLOADMANAGER-HOMEBREW-AUTHOR: " --replace "<Pair key=''info''><String>"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "*.xml" --alter --search "<Pair key=''title''><String>LANG" --replace "<Pair key=''title_rsc''><String>LANG"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "*.xml" --alter --search "<Pair key=''info''><String>LANG" --replace "<Pair key=''info_rsc''><String>LANG"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "<Pair key=''title''><String>LANG" --replace "<Pair key=''title_rsc''><String>LANG"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "<Pair key=''info''><String>LANG" --replace "<Pair key=''info_rsc''><String>LANG"
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "<Query class=''type:x-xmb/folder-pixmap'' key=''languages'' attr=''languages'' src=''#seg_settings_languages''/>" --replace ""
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "seg_current_theme_LANGUAGE-CODE" --replace "seg_current_theme"
 )
 del /Q /S %languageinisdir%\*.tmp >NUL
 
 for /f "tokens=1,2 delims=*" %%A IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
+echo - core %%A source files ...
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "type=XXX" --replace "type=%%A"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "FILEPROVIDER_BASE_URL" --replace "%fileprovider_base_url%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "*.xml" --alter --search "FILEPROVIDER_BASE_URL" --replace "%fileprovider_base_url%"
@@ -106,8 +102,40 @@ for /f "tokens=1,2 delims=*" %%A IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "0.00" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search " DESCRIPTION" --replace ""
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "Download_*.xml" --alter --search "<Pair key=''info''><String>LANG_INFO_DOWNLOADMANAGER-HOMEBREW-AUTHOR: " --replace "<Pair key=''info''><String>"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "<Query class=''type:x-xmb/folder-pixmap'' key=''languages'' attr=''languages'' src=''#seg_settings_languages''/>" --replace ""
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "seg_current_theme_LANGUAGE-CODE" --replace "seg_current_theme"
 %external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
+
+if not exist "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree" mkdir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree" >NUL
+xcopy /E /Y "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp\*.*" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree" >NUL
+del /Q /S "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\IMAGES\*.*" >NUL
+del /Q /S "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\IMAGES" >NUL
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree" --include "*.xml" --alter --search "xmb://localhost/dev_hdd0/game/XMBMANPLS/USRDIR/xmbmp/" --replace "xmb://localhost/dev_hdd0/game/XMBMANPLS/USRDIR/xmbmp-rcofree/"
+FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\%default_lang%.ini) DO (
+FOR /F "tokens=1,2 delims=-" %%E IN ('echo %%G') DO (
+FOR /F "tokens=1,2,3 delims=_" %%O IN ('echo %%E') DO (
+IF [%%Q]==[MAIN] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree" --include "game_main.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[SETTINGS] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree" --include "game_settings.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[FILEMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "File_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[GAMEDATAMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Game_Data_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[USERDATAMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "User_Data_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[GAMEMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Game_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[HOMEBREWMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Homebrew_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[WEBLINKS] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Links.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[MULTIMEDIAMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Multimedia_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[PACKAGEMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Package_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF [%%Q]==[DOWNLOADMANAGER] %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Download_Manager.xml" --alter --search "%%G" --replace "%%H"
+IF EXIST "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES\Personal_Area.xml" IF [%%Q]==[PERSONALAREA] %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp-rcofree\FEATURES" --include "Personal_Area.xml" --alter --search "%%G" --replace "%%H"
+)
+)
+)
+
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "*.xml" --alter --search "<Pair key=''title''><String>LANG" --replace "<Pair key=''title_rsc''><String>LANG"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "*.xml" --alter --search "<Pair key=''info''><String>LANG" --replace "<Pair key=''info_rsc''><String>LANG"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "<Pair key=''title''><String>LANG" --replace "<Pair key=''title_rsc''><String>LANG"
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "<Pair key=''info''><String>LANG" --replace "<Pair key=''info_rsc''><String>LANG"
 )
 
 FOR %%A IN (hfw) DO (
@@ -135,8 +163,9 @@ IF EXIST "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES\Personal_Area.xm
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 for /f "tokens=1,2 delims=." %%Y IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\*."') DO (
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\%%Y\dev_flash~vsh~resource~explore~xmb\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\%%Y\*.xml" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\%%Y\PS3~dev_flash~vsh~resource~explore~xmb\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\%%Y\*.xml" >NUL
 )
+
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_usb000/PS3/%id_xmbmp%"
