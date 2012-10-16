@@ -57,8 +57,8 @@ if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data" mkdir "%pkgsource%\co
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\data\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\data\*.*" >NUL
 if [%%A]==[hdd0-cfw-full] xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\*.*" >NUL
 if [%%A]==[hdd0-cfw] (
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\Normal CFW\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55\Normal CFW\*.*" >NUL
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55\Rebug\*.*" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55-All-Normal CFW\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55-All-Normal CFW\*.*" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55-All-Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55-All-Rebug\*.*" >NUL
 )
 )
 
@@ -73,17 +73,15 @@ echo ^</TextLang^> >> %languageinisdir%\%%S.rco.tmp
 
 FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.*"') DO (
-FOR /f "tokens=1,2 delims=*" %%O IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\*."') DO (
-FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\*."') DO (
-FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text\*.xml"') DO (
+FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
+FOR /f "tokens=1,2 delims=." %%E IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text\*.xml"') DO (
 set LCODE=%default_lang%
 FOR /F "tokens=1,2 delims==" %%G IN (%languageinisdir%\language_map.ini) DO (
 IF [%%H]==[%%E] set LCODE=%%G
 )
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
-type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\%%O\PS3~dev_flash~vsh~resource\%%C\Text\%%E.xml"
-)
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
+%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
+type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text\%%E.xml"
 )
 )
 )
@@ -162,10 +160,11 @@ IF EXIST "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES\Personal_Area.xm
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "FILEPROVIDER_BASE_URL" --replace "%fileprovider_base_url%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\xmbmp" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
-for /f "tokens=1,2 delims=." %%Y IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\*."') DO (
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55\%%Y\PS3~dev_flash~vsh~resource~explore~xmb\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\%%Y\*.xml" >NUL
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps" >NUL
+for /f "tokens=1,2 delims=*" %%Y IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\*.*"') DO (
+if not exist "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\%%Y" mkdir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\%%Y" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%Y\PS3~dev_flash~vsh~resource~explore~xmb\*.xml" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\%%Y\*.xml" >NUL
 )
-
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 %external%\ssr\ssr --nobackup --recurse --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR" --include "*.xml" --alter --search "/dev_hdd0/game/%id_xmbmp%" --replace "/dev_usb000/PS3/%id_xmbmp%"
