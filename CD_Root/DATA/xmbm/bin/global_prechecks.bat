@@ -10,6 +10,12 @@ xcopy /E "%pkgbaseoriginalsources%\*.*" "%pkgbasesources%\" >NUL
 IF NOT EXIST "%pkgsource%\" mkdir "%pkgsource%" >NUL
 IF NOT EXIST "%pkgoutput%\" mkdir "%pkgoutput%" >NUL
 
+IF NOT EXIST "%external%\psn_package_npdrm.exe" (
+echo "You need to have psn_package_npdrm.exe in \ext directory"
+pause
+exit 
+)
+
 IF NOT EXIST "%external%\scetool\data" (
 mkdir "%external%\scetool\data" >NUL
 %external%\wget http://www.ps3devwiki.com/files/devtools/scetool/data/keys -O %external%\scetool\data\keys > NUL
