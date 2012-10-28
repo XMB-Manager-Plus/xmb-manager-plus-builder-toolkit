@@ -94,7 +94,7 @@ mkdir "%pkgsource%\custom\%id_xmbmp%" >NUL
 xcopy %pkgsource%\%coresrc%\%id_xmbmp%\*.* /e /y %pkgsource%\custom\%id_xmbmp%\ >NUL
 xcopy %pkgsource%\themepacks\%themesrc%\%id_xmbmp%\USRDIR\xmbmp\IMAGES\*.* /e /y %pkgsource%\custom\%id_xmbmp%\USRDIR\xmbmp\IMAGES\ >NUL
 echo - Compiling rco's ...
-FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\*.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
 cd "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C"
 "%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C.rco"
@@ -129,7 +129,7 @@ del /Q "%pkgsource%\custom\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\resource\*.rco.*"
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\custom\EBOOT.ELF" "%pkgsource%\custom\%id_xmbmp%\USRDIR\" >NUL
-FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\apps-temp\XMB Manager Plus\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\custom\apps-temp\XMB Manager Plus\*.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
 del /Q "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*.rco" >NUL
 move "%pkgsource%\custom\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C" "%pkgsource%\custom\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\" >NUL

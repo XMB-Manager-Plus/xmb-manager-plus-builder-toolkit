@@ -10,7 +10,7 @@ if not exist "%pkgoutput%" mkdir "%pkgoutput%" >NUL
 for /f "tokens=1,2 delims=*" %%A IN ('dir /b "%pkgsource%\core-hdd0-*."') DO (
 echo - Building core %%A installer package:
 echo - Compiling rco's ...
-FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\*.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
 cd "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C"
 "%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C.rco"
@@ -38,7 +38,7 @@ del /Q "%pkgsource%\%%A\%id_xmbmp%\*.SFO" >NUL
 del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\resource\*.rco.*" >NUL
 del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%%A\EBOOT.ELF" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\" >NUL
-FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\XMB Manager Plus\3.*"') DO (
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\XMB Manager Plus\*.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
 del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*.rco" >NUL
 move "%pkgsource%\%%A\apps-temp\XMB Manager Plus\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\" >NUL
@@ -49,7 +49,7 @@ if [%%A]==[core-hdd0-cfw] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_M
 if [%%A]==[core-hdd0-cfw-full] rename UP0001-%id_xmbmp%_00-0000000000000000.pkg XMB_Manager_Plus_v%working_version%_Core_CFW_FULL.pkg >NUL
 )
 
-FOR %%A IN (usb000 usb001 usb006 hfw) DO (
+FOR %%A IN (usb000 usb001 usb006) DO (
 cd "%pkgsource%\core-%%A"
 ..\%external%\zip.exe -9 -r ..\%pkgoutput%\XMB_Manager_Plus_v%working_version%_Core_%%A.zip .
 cd "%~dp0"
