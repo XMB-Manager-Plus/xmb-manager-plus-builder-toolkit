@@ -59,7 +59,6 @@ if [%%A]==[hdd0-cfw-full] xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\*.
 if [%%A]==[hdd0-cfw] (
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55-All-Normal CFW\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55-All-Normal CFW\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55-All-Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55-All-Rebug\*.*" >NUL
-xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.21-All-Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.21-All-Rebug\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.30-All-E3\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.30-All-E3\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.30-All-Rogero\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.30-All-Rogero\*.*" >NUL
 )
