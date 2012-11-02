@@ -15,6 +15,7 @@ FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
 cd "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C"
 "%~dp0\%external%\rcomage\rcomage\rcomage.exe" compile --zlib-level 1 "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\%%C.xml" "%~dp0\%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C.rco"
+cd "%~dp0"
 if not exist "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource" mkdir "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource"
 move "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\" >NUL
 )
@@ -28,7 +29,6 @@ cd "%~dp0" >NUL
 del /Q "%external%\scetool\EBOOT.ELF" > NUL
 move "%external%\scetool\EBOOT.BIN" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\" > NUL
 echo - Converting sfx to sfo ...
-echo %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\%%A\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\%%A\%id_xmbmp%\PARAM.SFO
 %external%\aldostools\PARAM_SFO_Editor.exe %pkgsource%\%%A\%id_xmbmp%\PARAM.SFX --out=%pkgsource%\%%A\%id_xmbmp%\PARAM.SFO
 move "%pkgsource%\%%A\%id_xmbmp%\PARAM.SFX" "%pkgsource%\%%A\" >NUL
 echo - Making package ...
