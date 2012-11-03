@@ -59,20 +59,33 @@ if [%%A]==[hdd0-cfw-full] xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\*.
 if [%%A]==[hdd0-cfw] (
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55-All-Normal\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55-All-Normal\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\3.55-All-Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\3.55-All-Rebug\*.*" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.21-All-Rebug\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.21-All-Rebug\*.*" >NUL
+xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.21-All-Rogero\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.21-All-Rogero\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.30-All-E3\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.30-All-E3\*.*" >NUL
 xcopy /Y /E "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\4.30-All-Rogero\*.*" "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\4.30-All-Rogero\*.*" >NUL
 )
 )
 
 for /f "tokens=1,2 delims=." %%S IN ('dir /b %languageinisdir%\*.ini') DO (
-if exist "%languageinisdir%\%%S.rco.tmp" del /Q /S %languageinisdir%\%%S.rco.tmp >NUL
-copy /y NUL %languageinisdir%\%%S.rco.tmp >NUL
+if exist "%languageinisdir%\%%S-explore_plugin_full.rco.tmp" del /Q /S %languageinisdir%\%%S-explore_plugin_full.rco.tmp >NUL
+if exist "%languageinisdir%\%%S-explore_category_game.rco.tmp" del /Q /S %languageinisdir%\%%S-explore_category_game.rco.tmp >NUL
+if exist "%languageinisdir%\%%S-explore_category_tv.rco.tmp" del /Q /S %languageinisdir%\%%S-explore_category_tv.rco.tmp >NUL
+copy /y NUL %languageinisdir%\%%S-explore_plugin_full.rco.tmp >NUL
+copy /y NUL %languageinisdir%\%%S-explore_category_game.rco.tmp >NUL
+copy /y NUL %languageinisdir%\%%S-explore_category_tv.rco.tmp >NUL
 for /f "tokens=1,2 delims==" %%G in (%languageinisdir%\%%S.ini) DO (
-IF NOT [%%H]==[] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S.rco.tmp
+IF NOT [%%H]==[] (
+IF [%%G]==[LANG_TITL_MAIN] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S-explore_category_game.rco.tmp
+IF [%%G]==[LANG_INFO_MAIN] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S-explore_category_game.rco.tmp
+IF [%%G]==[LANG_TITL_MAIN] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S-explore_category_tv.rco.tmp
+IF [%%G]==[LANG_INFO_MAIN] echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S-explore_category_tv.rco.tmp
+echo 	^<Text name^="%%G"^>%%H^</Text^> >> %languageinisdir%\%%S-explore_plugin_full.rco.tmp
 )
-echo ^</TextLang^> >> %languageinisdir%\%%S.rco.tmp
 )
-
+echo ^</TextLang^> >> %languageinisdir%\%%S-explore_plugin_full.rco.tmp
+echo ^</TextLang^> >> %languageinisdir%\%%S-explore_category_game.rco.tmp
+echo ^</TextLang^> >> %languageinisdir%\%%S-explore_category_tv.rco.tmp
+)
 FOR %%A IN (hdd0-cfw hdd0-cfw-full) DO (
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\*.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
@@ -83,7 +96,7 @@ IF [%%H]==[%%E] set LCODE=%%G
 )
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "/SSR_CR//SSR_LF/</TextLang>" --replace "" >NUL
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text" --include "%%E.xml" --alter --search "</TextLang>" --replace "" >NUL
-type %languageinisdir%\!LCODE!.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text\%%E.xml"
+type %languageinisdir%\!LCODE!-%%C.rco.tmp >> "%pkgsource%\core-%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text\%%E.xml"
 )
 )
 )
@@ -104,7 +117,6 @@ echo - core %%A source files ...
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%" --include "PARAM.SFX" --alter --search " DESCRIPTION" --replace ""
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp\FEATURES" --include "Download_*.xml" --alter --search "<Pair key=''info''><String>LANG_INFO_DOWNLOADMANAGER-HOMEBREW-AUTHOR: " --replace "<Pair key=''info''><String>"
 %external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "<Query class=''type:x-xmb/folder-pixmap'' key=''languages'' attr=''languages'' src=''#seg_settings_languages''/>" --replace ""
-%external%\ssr\ssr --nobackup --encoding utf8 --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\xmbmp" --include "game_settings.xml" --alter --search "seg_current_theme_LANGUAGE-CODE" --replace "seg_current_theme"
 %external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "APPTITLID" --replace "%id_xmbmp%"
 %external%\ssr\ssr --nobackup --encoding utf8 --recurse --dir "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps" --include "*.xml" --alter --search "XMBMP-VERSION" --replace "%working_version%"
 

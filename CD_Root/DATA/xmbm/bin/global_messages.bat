@@ -40,6 +40,7 @@ echo.
 %external%\cecho {04}        лллллллллллллллллллллллллллллллллллллллллллллллллллллл{\n}
 %external%\cecho {04}        л                                                    л{\n}
 %external%\cecho {04}        л {0E}             Checking your environment{04}             л{\n}
+%external%\cecho {04}        л {0E}                  Please wait ...{04}                  л{\n}
 %external%\cecho {04}        л                                                    л{\n}
 %external%\cecho {04}        лллллллллллллллллллллллллллллллллллллллллллллллллллллл{\n}
 %external%\cecho {0F}{\n}

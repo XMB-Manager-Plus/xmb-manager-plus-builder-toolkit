@@ -6,7 +6,20 @@ call "%bindir%\global_messages.bat" "CHECKING"
 IF NOT EXIST "%pkgbasesources%\" (
 mkdir "%pkgbasesources%" >NUL
 xcopy /E "%pkgbaseoriginalsources%\*.*" "%pkgbasesources%\" >NUL
+FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\*.*"') DO (
+FOR /f "tokens=1,2 delims=." %%C IN ('dir /b "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*.rco"') DO (
+if not exist "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C" mkdir "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C"
+if not exist "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text" mkdir "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Text"
+if not exist "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Images" mkdir "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\Images"
+cd "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C"
+"%~dp0\%external%\rcomage\rcomage\rcomage.exe" dump "%~dp0\%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C.rco" "%~dp0\%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C\%%C.xml" --images "Images" --text "Text" --quiet
+cd "%~dp0"
+del /Q /S "%pkgbasesources%\APPTITLID\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C.rco" > NUL
 )
+)
+)
+
+
 IF NOT EXIST "%pkgsource%\" mkdir "%pkgsource%" >NUL
 IF NOT EXIST "%pkgoutput%\" mkdir "%pkgoutput%" >NUL
 

@@ -40,7 +40,7 @@ del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\*.BIN" >NUL
 move  "%pkgsource%\%%A\EBOOT.ELF" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\" >NUL
 FOR /f "tokens=1,2 delims=*" %%X IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\*.*"') DO (
 FOR /f "tokens=1,2 delims=*" %%C IN ('dir /b "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*."') DO (
-del /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*.rco" >NUL
+del /S /Q "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\*.rco" >NUL
 move "%pkgsource%\%%A\apps-temp\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\%%C" "%pkgsource%\%%A\%id_xmbmp%\USRDIR\apps\XMB Manager Plus\%%X\PS3~dev_flash~vsh~resource\" >NUL
 )
 )
